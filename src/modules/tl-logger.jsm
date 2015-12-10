@@ -92,6 +92,17 @@ let TorLauncherLogger = // Public
         break;
     }
   },
+
+  logev: function(msg)
+  {
+    var d = new Date();
+    dump("INST " + d.toISOString() + " " + msg + "\n");
+  },
+
+  logcommand: function(event)
+  {
+    this.logev("command " + event.id)
+  },
 };
 
 Object.freeze(TorLauncherLogger);
