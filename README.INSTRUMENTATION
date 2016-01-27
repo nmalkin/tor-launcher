@@ -25,6 +25,12 @@ sed -i -e 's/Port 915/Port 925/' ./Browser/TorBrowser/Data/Tor/torrc-defaults
 
 https://trac.torproject.org/projects/tor/wiki/doc/TorBrowser/Hacking#BuildingJustTorLauncherOrTorbutton
 
+In the tor-launcher directory:
+
+make package
+
+In the tor-browser directory:
+
 ln -sf ~/tor-launcher/pkg/tor-launcher-0.2.8.xpi Browser/TorBrowser/Data/Browser/profile.default/extensions/tor-launcher\@torproject.org.xpi
 
 
