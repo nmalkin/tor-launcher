@@ -1514,3 +1514,18 @@ function createColonStr(aStr1, aStr2)
 
   return rv;
 }
+
+function attach_instrumentation(elem)
+{
+  var elems = document.getElementsByTagName("*");
+  for (var i = 0; i < elems.length; i++) {
+    let elem = elems[i];
+    if (elem.tagName === "wizardpage") {
+      elem.addEventListener("pageshow", INST);
+      elem.addEventListener("pageadvanced", INST);
+      elem.addEventListener("pagerewound", INST);
+    } else if (elem.tagName === "button") {
+      elem.addEventListener("command", INST);
+    }
+  }
+}

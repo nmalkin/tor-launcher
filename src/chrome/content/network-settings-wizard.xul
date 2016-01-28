@@ -30,7 +30,7 @@
   <!-- This page requires a setTimeout for onpageshow because it may be
        shown first -->
   <wizardpage pageid="first" next="proxy" onextra2="onCopyLog();"
-              onpageshow="setTimeout(function() { showWizardNavButtons(false); }, 0);">
+              onpageshow="setTimeout(function() { showWizardNavButtons(false); attach_instrumentation(document); }, 0);">
     <hbox class="tbb-header">
       <vbox class="tbb-logo-box" align="start">
         <image class="tbb-logo" />
@@ -184,19 +184,4 @@
     <label id="forAssistance" />
   </hbox>
   <panel id="copyLogFeedbackPanel" />
-
-<script type="application/x-javascript">
-// Add instrumentation callbacks to all relevant elements.
-var elems = document.getElementsByTagName("*");
-for (var i = 0; i &lt; elems.length; i++) {
-  let elem = elems[i];
-  if (elem.tagName === "wizardpage") {
-    elem.addEventListener("pageshow", INST);
-    elem.addEventListener("pageadvanced", INST);
-    elem.addEventListener("pagerewound", INST);
-  } else if (elem.tagName === "button") {
-    elem.addEventListener("command", INST);
-  }
-}
-</script>
 </wizard>
