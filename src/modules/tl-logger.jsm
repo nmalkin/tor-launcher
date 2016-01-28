@@ -105,7 +105,7 @@ let inst = function(msg)
 
 let INST = function(event)
 {
-  if (event.type==="pageshow") {
+  if (event.target.tagName === "wizardpage") {
     inst(event.type + " " + event.target.pageid);
   } else {
     inst(event.type + " " + event.target.id);
