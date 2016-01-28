@@ -30,7 +30,7 @@
   <!-- This page requires a setTimeout for onpageshow because it may be
        shown first -->
   <wizardpage pageid="first" next="proxy" onextra2="onCopyLog();"
-              onpageshow="TorLauncherLogger.logev('pageshow ' + this.pageid); setTimeout(function() { showWizardNavButtons(false); }, 0);">
+              onpageshow="setTimeout(function() { showWizardNavButtons(false); }, 0);">
     <hbox class="tbb-header">
       <vbox class="tbb-logo-box" align="start">
         <image class="tbb-logo" />
@@ -46,16 +46,16 @@
       <separator/>
       <label>&torSettings.connectPrompt2;</label>
       <label>&torSettings.connectPrompt3;</label>
-      <button label="&torSettings.connect;" id="connect_button" oncommand="TorLauncherLogger.logcommand(this); useSettings();"/>
+      <button label="&torSettings.connect;" id="connect_button" oncommand="useSettings();"/>
       <separator class="tall"/>
       <label>&torSettings.configurePrompt1;</label>
       <label>&torSettings.configurePrompt2;</label>
-      <button label="&torSettings.configure;" id="configure_button" oncommand="TorLauncherLogger.logcommand(this); onWizardConfigure();"/>
+      <button label="&torSettings.configure;" id="configure_button" oncommand="onWizardConfigure();"/>
     </vbox>
   </wizardpage>
 
   <wizardpage pageid="bridges" next="proxy" onextra2="onCopyLog();"
-              onpageshow="TorLauncherLogger.logev('pageshow ' + this.pageid); showWizardNavButtons(true);"
+              onpageshow="showWizardNavButtons(true);"
               onpageadvanced="return onWizardUseBridgesNext(this)">
     <hbox class="tbb-header">
       <vbox class="tbb-logo-box" align="start">
@@ -81,7 +81,7 @@
   </wizardpage>
 
   <wizardpage pageid="bridgeSettings" next="proxy" onextra2="onCopyLog();"
-              onpageshow="TorLauncherLogger.logev('pageshow ' + this.pageid); onWizardBridgeSettingsShow();">
+              onpageshow="onWizardBridgeSettingsShow();">
     <hbox class="tbb-header">
       <vbox class="tbb-logo-box" align="start">
         <image class="tbb-logo" />
@@ -100,7 +100,7 @@
   </wizardpage>
 
   <wizardpage pageid="proxy" onextra2="onCopyLog();"
-              onpageshow="TorLauncherLogger.logev('pageshow ' + this.pageid); onWizardUseProxyRadioChange()"
+              onpageshow="onWizardUseProxyRadioChange()"
               onpageadvanced="return onWizardProxyNext(this);">
     <hbox class="tbb-header">
       <vbox class="tbb-logo-box" align="start">
@@ -127,7 +127,7 @@
   </wizardpage>
 
   <wizardpage pageid="proxyYES" onextra2="onCopyLog();"
-              onpageshow="TorLauncherLogger.logev('pageshow ' + this.pageid); onWizardProxySettingsShow()"
+              onpageshow="onWizardProxySettingsShow()"
               onpageadvanced="return (getAndValidateProxySettings() != null)">
     <hbox class="tbb-header">
       <vbox class="tbb-logo-box" align="start">
@@ -146,7 +146,7 @@
   <!-- This page requires a setTimeout for onpageshow because it may be
        shown first -->
   <wizardpage pageid="startingTor" next="notUsed"
-              onpageshow="TorLauncherLogger.logev('pageshow ' + this.pageid); setTimeout(function() { showWizardNavButtons(false); }, 0);">
+              onpageshow="setTimeout(function() { showWizardNavButtons(false); }, 0);">
     <spring flex="1" />
     <hbox>
       <spring flex="1" />
@@ -157,7 +157,7 @@
   </wizardpage>
 
   <wizardpage pageid="errorPanel" next="notUsed"
-              onpageshow="TorLauncherLogger.logev('pageshow ' + this.pageid); showWizardNavButtons(false);"
+              onpageshow="showWizardNavButtons(false);"
               onextra2="onCopyLog();">
     <spring flex="1" />
     <hbox>
@@ -176,7 +176,6 @@
   </wizardpage>
 
   <wizardpage class="help" pageid="bridgeHelp" next="notUsed"
-              onpageshow="TorLauncherLogger.logev('pageshow ' + this.pageid);"
               onpageadvanced="closeHelp(); return false;">
     <vbox id="bridgeHelpContent" />
   </wizardpage>
