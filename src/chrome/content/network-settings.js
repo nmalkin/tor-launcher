@@ -14,6 +14,8 @@ XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherUtil",
                           "resource://torlauncher/modules/tl-util.jsm");
 XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherLogger",
                           "resource://torlauncher/modules/tl-logger.jsm");
+XPCOMUtils.defineLazyModuleGetter(this, "INST",
+                          "resource://torlauncher/modules/tl-logger.jsm");
 
 const kPrefDefaultBridgeRecommendedType =
                    "extensions.torlauncher.default_bridge_recommended_type";

@@ -10,7 +10,7 @@
  * Allows loglevel-based logging to different logging mechanisms.
  *************************************************************************/
 
-let EXPORTED_SYMBOLS = [ "TorLauncherLogger" ];
+let EXPORTED_SYMBOLS = [ "TorLauncherLogger", "INST" ];
 
 const Cc = Components.classes;
 const Ci = Components.interfaces;
@@ -92,21 +92,25 @@ let TorLauncherLogger = // Public
         break;
     }
   },
-
-  logev: function(msg)
-  {
-    var d = new Date();
-    dump("INST " + d.toISOString() + " " + msg + "\n");
-  },
-
-  logcommand: function(event)
-  {
-    this.logev("command " + event.id)
-  },
 };
 
 Object.freeze(TorLauncherLogger);
 
+// Log an instrumentation message.
+let inst = function(msg)
+{
+  var d = new Date();
+  dump("INST " + d.toISOString() + " " + msg + "\n");
+}
+
+let INST = function(event)
+{
+  if (event.type==="pageshow") {
+    inst(event.type + " " + event.target.pageid);
+  } else {
+    inst(event.type + " " + event.target.id);
+  }
+}
 
 let TLLoggerInternal = // Private
 {
