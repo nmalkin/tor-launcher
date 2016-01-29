@@ -105,11 +105,13 @@ let inst = function(msg)
 
 let INST = function(event)
 {
+  var id;
   if (event.target.tagName === "wizardpage") {
-    inst(event.type + " " + event.target.pageid);
+    id = event.target.pageid;
   } else {
-    inst(event.type + " " + event.target.id);
+    id = event.target.id;
   }
+  inst(event.type + " " + id);
 }
 
 let TLLoggerInternal = // Private
