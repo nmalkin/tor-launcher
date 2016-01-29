@@ -1518,6 +1518,8 @@ function createColonStr(aStr1, aStr2)
 function attach_instrumentation(elem)
 {
   var eventNames = [
+    "click",
+
     // button
     "command",
 
