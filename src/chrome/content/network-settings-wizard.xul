@@ -30,7 +30,7 @@
   <!-- This page requires a setTimeout for onpageshow because it may be
        shown first -->
   <wizardpage pageid="first" next="proxy" onextra2="onCopyLog();"
-              onpageshow="setTimeout(function() { showWizardNavButtons(false); attach_instrumentation(document); }, 0);">
+              onpageshow="setTimeout(function() { showWizardNavButtons(false); }, 0);">
     <hbox class="tbb-header">
       <vbox class="tbb-logo-box" align="start">
         <image class="tbb-logo" />
@@ -184,4 +184,8 @@
     <label id="forAssistance" />
   </hbox>
   <panel id="copyLogFeedbackPanel" />
+
+  <script>
+    attach_instrumentation(document);
+  </script>
 </wizard>
