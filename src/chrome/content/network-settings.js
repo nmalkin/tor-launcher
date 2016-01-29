@@ -1521,6 +1521,10 @@ function attach_instrumentation(elem)
     // button
     "command",
 
+    // wizard
+    "wizardfinish",
+    "wizardcancel",
+
     // wizardpage
     "pageshow",
     "pageadvanced",
