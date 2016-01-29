@@ -111,7 +111,7 @@ let INST = function(event)
   } else {
     id = event.target.id;
   }
-  inst(event.type + " " + id);
+  inst(event.type + " " + event.target.tagName + " " + id);
 }
 
 let TLLoggerInternal = // Private
