@@ -119,6 +119,14 @@ let TorLauncherLogger = // Public
       // button
       "command",
 
+      // dialog
+      "dialogaccept",
+      "dialogcancel",
+      "dialogdisclosure",
+      "dialogextra1",
+      "dialogextra2",
+      "dialoghelp",
+
       // wizard
       "wizardfinish",
       "wizardcancel",
