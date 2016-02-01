@@ -41,4 +41,8 @@
     <description id="progressPleaseWait"
                  hidden="true">&torprogress.pleaseWait;</description>
   </vbox>
+
+  <script>
+    TorLauncherLogger.attach_instrumentation(document);
+  </script>
 </dialog>
