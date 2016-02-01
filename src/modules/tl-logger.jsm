@@ -10,7 +10,7 @@
  * Allows loglevel-based logging to different logging mechanisms.
  *************************************************************************/
 
-let EXPORTED_SYMBOLS = [ "TorLauncherLogger", "INST" ];
+let EXPORTED_SYMBOLS = [ "TorLauncherLogger" ];
 
 const Cc = Components.classes;
 const Ci = Components.interfaces;
@@ -23,6 +23,24 @@ Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherUtil",
                           "resource://torlauncher/modules/tl-util.jsm");
 
+
+// Log an instrumentation message.
+let inst = function(msg)
+{
+  var d = new Date();
+  dump("INST " + d.toISOString() + " " + msg + "\n");
+}
+
+let INST = function(event)
+{
+  var id;
+  if (event.target.tagName === "wizardpage") {
+    id = event.target.pageid;
+  } else {
+    id = event.target.id;
+  }
+  inst(event.type + " " + event.target.tagName + " " + id);
+}
 
 let TorLauncherLogger = // Public
 {
@@ -92,27 +110,31 @@ let TorLauncherLogger = // Public
         break;
     }
   },
+
+  attach_instrumentation: function(elem)
+  {
+    var eventNames = [
+      "click",
+
+      // button
+      "command",
+
+      // wizard
+      "wizardfinish",
+      "wizardcancel",
+
+      // wizardpage
+      "pageshow",
+      "pageadvanced",
+      "pagerewound",
+    ];
+    for (var i = 0; i < eventNames.length; i++) {
+      elem.addEventListener(eventNames[i], INST, false);
+    }
+  },
 };
 
 Object.freeze(TorLauncherLogger);
-
-// Log an instrumentation message.
-let inst = function(msg)
-{
-  var d = new Date();
-  dump("INST " + d.toISOString() + " " + msg + "\n");
-}
-
-let INST = function(event)
-{
-  var id;
-  if (event.target.tagName === "wizardpage") {
-    id = event.target.pageid;
-  } else {
-    id = event.target.id;
-  }
-  inst(event.type + " " + event.target.tagName + " " + id);
-}
 
 let TLLoggerInternal = // Private
 {

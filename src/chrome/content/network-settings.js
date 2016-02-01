@@ -14,8 +14,6 @@ XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherUtil",
                           "resource://torlauncher/modules/tl-util.jsm");
 XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherLogger",
                           "resource://torlauncher/modules/tl-logger.jsm");
-XPCOMUtils.defineLazyModuleGetter(this, "INST",
-                          "resource://torlauncher/modules/tl-logger.jsm");
 
 const kPrefDefaultBridgeRecommendedType =
                    "extensions.torlauncher.default_bridge_recommended_type";
@@ -1513,26 +1511,4 @@ function createColonStr(aStr1, aStr2)
   }
 
   return rv;
-}
-
-function attach_instrumentation(elem)
-{
-  var eventNames = [
-    "click",
-
-    // button
-    "command",
-
-    // wizard
-    "wizardfinish",
-    "wizardcancel",
-
-    // wizardpage
-    "pageshow",
-    "pageadvanced",
-    "pagerewound",
-  ];
-  for (var i = 0; i < eventNames.length; i++) {
-    elem.addEventListener(eventNames[i], INST, false);
-  }
 }

@@ -186,6 +186,6 @@
   <panel id="copyLogFeedbackPanel" />
 
   <script>
-    attach_instrumentation(document);
+    TorLauncherLogger.attach_instrumentation(document);
   </script>
 </wizard>
