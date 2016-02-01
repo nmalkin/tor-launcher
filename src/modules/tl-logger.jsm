@@ -128,13 +128,18 @@ let TorLauncherLogger = // Public
       "dialoghelp",
 
       // wizard
-      "wizardfinish",
+      "extra1",
+      "extra2",
+      "wizardback",
       "wizardcancel",
+      "wizardfinish",
+      "wizardnext",
 
       // wizardpage
-      "pageshow",
       "pageadvanced",
+      "pagehide",
       "pagerewound",
+      "pageshow",
     ];
     for (var i = 0; i < eventNames.length; i++) {
       elem.addEventListener(eventNames[i], INST, false);
