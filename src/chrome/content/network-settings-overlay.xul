@@ -93,7 +93,7 @@
         <radio align="start" id="bridgeRadioCustom"
                label="&torsettings.useBridges.custom;" />
       </radiogroup>
-      <button dlgtype="help" oncommand="onOpenHelp()" />
+      <button dlgtype="help" oncommand="onOpenHelp()" id="bridgeHelpButton"/>
     </hbox>
     <vbox id="bridgeCustomEntry">
       <label id="bridgeListLabel" style="margin-top:0px;"
