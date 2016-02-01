@@ -136,6 +136,7 @@ let TorLauncherLogger = // Public
 
 Object.freeze(TorLauncherLogger);
 
+
 let TLLoggerInternal = // Private
 {
   mLogLevel : 0,
