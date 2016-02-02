@@ -42,6 +42,10 @@ let instrument_event = function(event)
     o.target_id = event.target.id;
   }
 
+  if (event.target.tagName === "menulist" || event.target.tagName === "menuitem") {
+    o.value = event.target.value;
+  }
+
   if (event.type === "click") {
     o.detail = event.detail;
   }
