@@ -122,8 +122,6 @@ let TorLauncherLogger = // Public
   {
     var eventNames = [
       "click",
-
-      // button
       "command",
 
       // dialog
