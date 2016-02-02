@@ -1227,6 +1227,8 @@ function initDefaultBridgeTypeMenu()
     if (bridgeType == selectedType)
       menu.selectedItem = mi;
   }
+  // This is set in the overlay XUL but seems to get clobbered by removeAllItems.
+  menu.menupopup.id = "defaultBridgeType_menuPopup";
 }
 
 

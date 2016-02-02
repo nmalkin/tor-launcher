@@ -140,6 +140,12 @@ let TorLauncherLogger = // Public
       "dialogextra2",
       "dialoghelp",
 
+      // menupopup
+      "popuphidden",
+      // "popuphiding",
+      // "popupshowing",
+      "popupshown",
+
       // wizard
       "extra1",
       "extra2",
