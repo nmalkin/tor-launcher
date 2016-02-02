@@ -131,6 +131,7 @@ let TorLauncherLogger = // Public
       "change",
       "click",
       "command",
+      "select",
 
       // dialog
       "dialogaccept",
