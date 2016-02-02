@@ -432,7 +432,7 @@ function readTorSettings()
                                           "ensure_tor_is_running");
           var s = TorLauncherUtil.getFormattedLocalizedString(
                                       "failed_to_get_settings", [details], 1);
-          TorLauncherUtil.showAlert(window, s);
+          TorLauncherUtil.showAlert(window, s,"failed_to_get_settings");
           close();
         }, 0);
   }
