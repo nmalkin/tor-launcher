@@ -41,6 +41,11 @@ let instrument_event = function(event)
   } else {
     o.target_id = event.target.id;
   }
+
+  if (event.type === "click") {
+    o.detail = event.detail;
+  }
+
   INST(o);
 }
 
