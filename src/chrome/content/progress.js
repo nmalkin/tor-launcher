@@ -17,8 +17,6 @@ XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherUtil",
                           "resource://torlauncher/modules/tl-util.jsm");
 XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherLogger",
                           "resource://torlauncher/modules/tl-logger.jsm");
-XPCOMUtils.defineLazyModuleGetter(this, "INST",
-                          "resource://torlauncher/modules/tl-logger.jsm");
 
 
 var gObsSvc;
@@ -187,7 +185,7 @@ var gObserver = {
         meter.value = percentComplete;
         // progressmeter doesn't provide an event when its value changes.
         // So fake one here.
-        INST({"type": "progresschanged", "target_tagname": meter.tagName, "target_id": meter.id, "value": meter.value})
+        TorLauncherLogger.INST({"type": "progresschanged", "target_tagname": meter.tagName, "target_id": meter.id, "value": meter.value})
       }
 
       var bootstrapDidComplete = (percentComplete >= 100);

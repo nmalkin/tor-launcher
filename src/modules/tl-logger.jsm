@@ -10,7 +10,7 @@
  * Allows loglevel-based logging to different logging mechanisms.
  *************************************************************************/
 
-let EXPORTED_SYMBOLS = [ "TorLauncherLogger", "INST" ];
+let EXPORTED_SYMBOLS = [ "TorLauncherLogger" ];
 
 const Cc = Components.classes;
 const Ci = Components.interfaces;
@@ -23,45 +23,6 @@ Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherUtil",
                           "resource://torlauncher/modules/tl-util.jsm");
 
-
-// Log an instrumentation message.
-let INST = function(obj)
-{
-  var d = new Date();
-  dump("INST " + d.toISOString() + " " + JSON.stringify(obj) + "\n");
-}
-
-let instrument_event = function(event)
-{
-  // Ignore mouseout and mouseover except on menuitem.
-  if (event.type === "mouseout" || event.type === "mouseover") {
-    if (event.target.tagName !== "menuitem") {
-      return;
-    }
-  }
-
-  var o = {};
-  o.type = event.type;
-  o.target_tagname = event.target.tagName;
-  if (event.target.tagName === "wizardpage") {
-    o.target_id = event.target.pageid;
-  } else {
-    o.target_id = event.target.id;
-  }
-
-  if (event.target.tagName === "menulist" || event.target.tagName === "menuitem") {
-    o.value = event.target.value;
-  }
-
-  if (event.type === "click") {
-    o.detail = event.detail;
-  }
-  if (event.type === "change") {
-    o.value = event.target.value;
-  }
-
-  INST(o);
-}
 
 let TorLauncherLogger = // Public
 {
@@ -132,6 +93,45 @@ let TorLauncherLogger = // Public
     }
   },
 
+  // Log an instrumentation message.
+  INST: function(obj)
+  {
+    var d = new Date();
+    dump("INST " + d.toISOString() + " " + JSON.stringify(obj) + "\n");
+  },
+
+  instrument_event: function(event)
+  {
+    // Ignore mouseout and mouseover except on menuitem.
+    if (event.type === "mouseout" || event.type === "mouseover") {
+      if (event.target.tagName !== "menuitem") {
+        return;
+      }
+    }
+
+    var o = {};
+    o.type = event.type;
+    o.target_tagname = event.target.tagName;
+    if (event.target.tagName === "wizardpage") {
+      o.target_id = event.target.pageid;
+    } else {
+      o.target_id = event.target.id;
+    }
+
+    if (event.target.tagName === "menulist" || event.target.tagName === "menuitem") {
+      o.value = event.target.value;
+    }
+
+    if (event.type === "click") {
+      o.detail = event.detail;
+    }
+    if (event.type === "change") {
+      o.value = event.target.value;
+    }
+
+    TorLauncherLogger.INST(o);
+  },
+
   attach_instrumentation: function(elem)
   {
     var eventNames = [
@@ -171,7 +171,7 @@ let TorLauncherLogger = // Public
       "pageshow",
     ];
     for (var i = 0; i < eventNames.length; i++) {
-      elem.addEventListener(eventNames[i], instrument_event, false);
+      elem.addEventListener(eventNames[i], TorLauncherLogger.instrument_event, false);
     }
   },
 };
