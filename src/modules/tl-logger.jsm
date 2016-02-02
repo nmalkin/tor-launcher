@@ -10,7 +10,7 @@
  * Allows loglevel-based logging to different logging mechanisms.
  *************************************************************************/
 
-let EXPORTED_SYMBOLS = [ "TorLauncherLogger" ];
+let EXPORTED_SYMBOLS = [ "TorLauncherLogger", "INST" ];
 
 const Cc = Components.classes;
 const Ci = Components.interfaces;
