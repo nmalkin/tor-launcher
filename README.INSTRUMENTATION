@@ -39,7 +39,8 @@ ln -sf ~/tor-launcher/pkg/tor-launcher-0.2.8.xpi Browser/TorBrowser/Data/Browser
 
 export TOR_SOCKS_PORT=9250
 export TOR_CONTROL_PORT=9251
-TOR_FORCE_NET_CONFIG=1 ./start-tor-browser.desktop -v
+export TOR_FORCE_NET_CONFIG=1
+./start-tor-browser.desktop -v
 
 Instrumentation messages appear on stdout and have an "INST" prefix.
 You can send them to a file with the --log option of start-tor-browser.desktop.
