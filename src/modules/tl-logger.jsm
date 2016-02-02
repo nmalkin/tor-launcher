@@ -33,6 +33,13 @@ let INST = function(obj)
 
 let instrument_event = function(event)
 {
+  // Ignore mouseout and mouseover except on menuitem.
+  if (event.type === "mouseout" || event.type === "mouseover") {
+    if (event.target.tagName !== "menuitem") {
+      return;
+    }
+  }
+
   var o = {};
   o.type = event.type;
   o.target_tagname = event.target.tagName;
@@ -131,6 +138,8 @@ let TorLauncherLogger = // Public
       "change",
       "click",
       "command",
+      "mouseout",
+      "mouseover",
       "select",
 
       // dialog
