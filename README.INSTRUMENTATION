@@ -30,17 +30,28 @@ In the tor-launcher directory:
 
 make package
 
-In the tor-browser directory:
 
+== Run on Mac OS
+
+cd TorBrowser.app
+ln -sf ~/tor-launcher/pkg/tor-launcher-0.2.7.7.xpi TorBrowser/Data/Browser/profile.default/extensions/tor-launcher\@torproject.org.xpi
+
+export TOR_SOCKS_PORT=9250
+export TOR_CONTROL_PORT=9251
+export TOR_FORCE_NET_CONFIG=1
+Contents/MacOS/firefox
+
+
+== Run on GNU/Linux
+
+cd tor-browser_en-US
 ln -sf ~/tor-launcher/pkg/tor-launcher-0.2.7.7.xpi Browser/TorBrowser/Data/Browser/profile.default/extensions/tor-launcher\@torproject.org.xpi
-
-
-== Run
 
 export TOR_SOCKS_PORT=9250
 export TOR_CONTROL_PORT=9251
 export TOR_FORCE_NET_CONFIG=1
 ./start-tor-browser.desktop -v
+
 
 Instrumentation messages appear on stdout and have an "INST" prefix.
 You can send them to a file with the --log option of start-tor-browser.desktop.
