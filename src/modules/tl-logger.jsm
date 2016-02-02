@@ -25,21 +25,23 @@ XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherUtil",
 
 
 // Log an instrumentation message.
-let inst = function(msg)
+let INST = function(obj)
 {
   var d = new Date();
-  dump("INST " + d.toISOString() + " " + msg + "\n");
+  dump("INST " + d.toISOString() + " " + JSON.stringify(obj) + "\n");
 }
 
-let INST = function(event)
+let instrument_event = function(event)
 {
-  var id;
+  var o = {};
+  o.type = event.type;
+  o.target_tagname = event.target.tagName;
   if (event.target.tagName === "wizardpage") {
-    id = event.target.pageid;
+    o.target_id = event.target.pageid;
   } else {
-    id = event.target.id;
+    o.target_id = event.target.id;
   }
-  inst(event.type + " " + event.target.tagName + " " + id);
+  INST(o);
 }
 
 let TorLauncherLogger = // Public
@@ -142,7 +144,7 @@ let TorLauncherLogger = // Public
       "pageshow",
     ];
     for (var i = 0; i < eventNames.length; i++) {
-      elem.addEventListener(eventNames[i], INST, false);
+      elem.addEventListener(eventNames[i], instrument_event, false);
     }
   },
 };
