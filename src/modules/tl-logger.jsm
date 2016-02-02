@@ -45,6 +45,9 @@ let instrument_event = function(event)
   if (event.type === "click") {
     o.detail = event.detail;
   }
+  if (event.type === "change") {
+    o.value = event.target.value;
+  }
 
   INST(o);
 }
@@ -121,6 +124,7 @@ let TorLauncherLogger = // Public
   attach_instrumentation: function(elem)
   {
     var eventNames = [
+      "change",
       "click",
       "command",
 
