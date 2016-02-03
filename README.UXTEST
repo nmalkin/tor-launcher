@@ -34,7 +34,7 @@ make package
 == Run on Mac OS
 
 cd TorBrowser.app
-ln -sf ~/tor-launcher/pkg/tor-launcher-0.2.7.7.xpi TorBrowser/Data/Browser/profile.default/extensions/tor-launcher\@torproject.org.xpi
+ln -sf ~/tor-launcher/pkg/tor-launcher-0.2.8.3.xpi TorBrowser/Data/Browser/profile.default/extensions/tor-launcher\@torproject.org.xpi
 
 export TOR_SOCKS_PORT=9250
 export TOR_CONTROL_PORT=9251
@@ -45,7 +45,7 @@ Contents/MacOS/firefox
 == Run on GNU/Linux
 
 cd tor-browser_en-US
-ln -sf ~/tor-launcher/pkg/tor-launcher-0.2.7.7.xpi Browser/TorBrowser/Data/Browser/profile.default/extensions/tor-launcher\@torproject.org.xpi
+ln -sf ~/tor-launcher/pkg/tor-launcher-0.2.8.3.xpi Browser/TorBrowser/Data/Browser/profile.default/extensions/tor-launcher\@torproject.org.xpi
 
 export TOR_SOCKS_PORT=9250
 export TOR_CONTROL_PORT=9251
