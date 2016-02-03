@@ -21,8 +21,8 @@
         buttonlabelextra2="&torsettings.copyLog;"
         onwizardfinish="return applySettings();"
         onwizardcancel="return onCancel();"
-        onload="initDialog();"
-        onunload="deinitDialog();">
+        onload="TorLauncherLogger.INST({type: 'load', target_id: 'configuration'});initDialog();"
+        onunload="TorLauncherLogger.INST({type: 'unload', target_id: 'configuration'}); deinitDialog();">
 
   <script type="application/x-javascript"
           src="chrome://torlauncher/content/network-settings.js"/>

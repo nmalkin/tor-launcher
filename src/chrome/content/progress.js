@@ -102,7 +102,7 @@ function closeThisWindow(aBootstrapDidComplete)
 
   if (gOpenerCallbackFunc)
     gOpenerCallbackFunc(aBootstrapDidComplete);
-
+  TorLauncherLogger.INST({type: 'unload', target_id: 'progress_bar'});
   window.close();
 }
 
