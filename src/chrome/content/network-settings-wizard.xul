@@ -51,15 +51,8 @@
   <wizardpage pageid="bridges" next="proxy" onextra2="onCopyLog();"
               onpageshow="showWizardNavButtons(true);"
               onpageadvanced="return onWizardUseBridgesNext(this)">
-    <hbox class="tbb-header">
-      <vbox class="tbb-logo-box" align="start">
-        <image class="tbb-logo" />
-      </vbox>
-      <separator class="tbb-logo-separator" orient="vertical" />
-      <vbox pack="end">
-        <label class="tbb-wizardpage-title" value="&torSettings.bridgePageTitle;"/>
-      </vbox>
-    </hbox>
+    <image src="chrome://torlauncher/skin/step2.png" minwidth="100%"
+    maxheight="80px"></image>
     <separator />
     <hbox>
       <vbox flex="1">
