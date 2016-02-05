@@ -5,6 +5,11 @@
  * vim: set sw=2 sts=2 ts=8 et syntax=css:
  */
 
+#connect_button {
+  background-color: #3c3;
+  -moz-appearance: none;
+}
+
 dialog {
   width: 45em;
   height: 41em;
