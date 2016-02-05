@@ -252,3 +252,4 @@ let TLLoggerInternal = // Private
 
 
 TLLoggerInternal._init();
+TorLauncherLogger.INST({"type": "start"})
