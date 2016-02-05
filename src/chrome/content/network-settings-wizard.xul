@@ -78,20 +78,14 @@
 
   <wizardpage pageid="bridgeSettings" next="proxy" onextra2="onCopyLog();"
               onpageshow="onWizardBridgeSettingsShow();">
-    <hbox class="tbb-header">
-      <vbox class="tbb-logo-box" align="start">
-        <image class="tbb-logo" />
-      </vbox>
-      <separator class="tbb-logo-separator" orient="vertical" />
-      <vbox pack="end">
-        <label class="tbb-wizardpage-title" value="&torSettings.bridgePageTitle;"/>
-      </vbox>
-    </hbox>
+    <image src="chrome://torlauncher/skin/step2.png" minwidth="100%"
+    maxheight="80px"></image>
     <separator />
-    <vbox>
+    <vbox align="center">
       <label id="bridgeSettingsPrompt"
              class="question">&torSettings.bridgeSettingsPrompt;&#160;
 &torsettings.useBridges.note;</label>
+      <separator class="short"/>
       <groupbox id="bridgeSpecificSettings" />
     </vbox>
   </wizardpage>
