@@ -69,6 +69,10 @@ wizard radiogroup {
   margin-top: 9px;
 }
 
+separator.short{
+  height: 0.5em;
+}
+
 separator.tall {
   height: 2.1em;
 }
