@@ -8,6 +8,7 @@
 #connect_button {
   background-color: #3c3;
   padding: 2em;
+  font-size: 130%;
   -moz-appearance: none;
 }
 
