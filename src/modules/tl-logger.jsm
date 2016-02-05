@@ -23,6 +23,11 @@ Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherUtil",
                           "resource://torlauncher/modules/tl-util.jsm");
 
+// https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules/OSFile.jsm
+// https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules/OSFile.jsm/OS.File_for_the_main_thread
+// OS.File.open returns a promise which we resolve in TorLauncherLogger.INST.
+Cu.import("resource://gre/modules/osfile.jsm");
+var kInstFile = OS.File.open("inst.log", {write: true, append: true});
 
 let TorLauncherLogger = // Public
 {
@@ -97,7 +102,10 @@ let TorLauncherLogger = // Public
   INST: function(obj)
   {
     var d = new Date();
-    dump("INST " + d.toISOString() + " " + JSON.stringify(obj) + "\n");
+    msg = "INST " + d.toISOString() + " " + JSON.stringify(obj) + "\n";
+    dump(msg);
+    let array = (new TextEncoder()).encode(msg);
+    kInstFile.then(f => f.write(array));
   },
 
   instrument_event: function(event)
