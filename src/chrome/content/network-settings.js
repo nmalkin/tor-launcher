@@ -187,6 +187,7 @@ function initDialog()
 
     // Use "Connect" as the finish button label (on the last wizard page)..
     var finishBtn = document.documentElement.getButton("finish");
+    document.documentElement.getButton("finish").className="green_button";
     if (finishBtn)
       finishBtn.label = TorLauncherUtil.getLocalizedString("connect");
 

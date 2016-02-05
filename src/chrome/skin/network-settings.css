@@ -12,6 +12,11 @@
   -moz-appearance: none;
 }
 
+.green_button{
+  background-color: #3c3;
+  -moz-appearance: none;
+}
+
 dialog {
   width: 45em;
   height: 41em;
