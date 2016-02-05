@@ -5,13 +5,6 @@
  * vim: set sw=2 sts=2 ts=8 et syntax=css:
  */
 
-#connect_button {
-  background-color: #3c3;
-  padding: 2em;
-  font-size: 130%;
-  -moz-appearance: none;
-}
-
 dialog {
   width: 45em;
   height: 41em;
@@ -67,10 +60,6 @@ wizard radiogroup {
 .firstResponses button {
   min-width: 85px;
   margin-top: 9px;
-}
-
-separator.short{
-  height: 0.5em;
 }
 
 separator.tall {
