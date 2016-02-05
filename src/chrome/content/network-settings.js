@@ -468,6 +468,7 @@ function onWizardUseBridgesNext(aWizPage)
 function onWizardBridgeSettingsShow()
 {
   var btn = document.documentElement.getButton("next");
+  btn.className="green_button";
   if (btn)
     btn.focus();
 }
