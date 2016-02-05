@@ -31,26 +31,20 @@
        shown first -->
   <wizardpage pageid="first" next="proxy" onextra2="onCopyLog();"
               onpageshow="setTimeout(function() { showWizardNavButtons(false); }, 0);">
-    <hbox class="tbb-header">
-      <vbox class="tbb-logo-box" align="start">
-        <image class="tbb-logo" />
-      </vbox>
-      <separator class="tbb-logo-separator" orient="vertical" />
-      <groupbox flex="1">
-        <description>&torsettings.prompt;</description>
-      </groupbox>
-    </hbox>
-    <separator />
-    <vbox class="firstResponses" align="start">
-      <label class="question">&torSettings.firstQuestion;</label>
-      <separator/>
+    <vbox class="firstResponses" align="center">
+      <image class="tbb-logo" />
+      <separator />
+      <button label="&torSettings.connect;" id="connect_button" oncommand="useSettings();"/>
+      <separator class="short"/>
       <label>&torSettings.connectPrompt2;</label>
       <label>&torSettings.connectPrompt3;</label>
-      <button label="&torSettings.connect;" id="connect_button" oncommand="useSettings();"/>
-      <separator class="tall"/>
+      <separator class="short"/>
+      <label>&torSettings.or;</label>
+      <separator class="short"/>
+      <button label="&torSettings.configure;" id="configure_button" oncommand="onWizardConfigure();"/>
+      <separator class="short"/>
       <label>&torSettings.configurePrompt1;</label>
       <label>&torSettings.configurePrompt2;</label>
-      <button label="&torSettings.configure;" id="configure_button" oncommand="onWizardConfigure();"/>
     </vbox>
   </wizardpage>
 

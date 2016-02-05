@@ -8,12 +8,14 @@
 <!ENTITY torSettings.no "No">
 
 <!ENTITY torSettings.firstQuestion "Which of the following best describes your situation?">
-<!ENTITY torSettings.configurePrompt1 "This computer's Internet connection is censored or proxied.">
-<!ENTITY torSettings.configurePrompt2 "I need to configure bridge or local proxy settings.">
-<!ENTITY torSettings.configure "Configure">
-<!ENTITY torSettings.connectPrompt2 "I would like to connect directly to the Tor network.">
-<!ENTITY torSettings.connectPrompt3 "This will work in most situations.">
+<!ENTITY torSettings.configurePrompt1 "Choose this to configure a bridge and change your proxy">
+<!ENTITY torSettings.configurePrompt2 "settings before connecting to Tor.">
+<!ENTITY torSettings.configure "Configure Manually">
+<!ENTITY torSettings.connectPrompt2 "Choose this to use default settings (no bridges, no proxies)">
+<!ENTITY torSettings.connectPrompt3 "to connect to the Tor network. This will work in most situations.">
 <!ENTITY torSettings.connect "Connect">
+
+<!ENTITY torSettings.or "OR">
 
 <!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
 <!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
