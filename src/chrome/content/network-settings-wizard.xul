@@ -115,6 +115,24 @@
     <groupbox id="proxySpecificSettings" />
   </wizardpage>
 
+  <wizardpage pageid="summary">
+    <image src="chrome://torlauncher/skin/step3.png" minwidth="100%"
+    maxheight="80px"></image>
+    <vbox align="center">
+      <separator />
+      <label>&torSettings.summaryPrompt1;</label>
+      <separator />
+      <label>&torSettings.summaryPrompt2;</label>
+      <separator />
+      <label>&torSettings.summaryBridge;</label>
+      <label>&torSettings.summaryProxy;</label>
+      <label>&torSettings.summaryAddress;</label>
+      <label>&torSettings.summaryPort;</label>
+      <label>&torSettings.summaryUsername;</label>
+      <label>&torSettings.summaryPassword;</label>
+    </vbox>
+  </wizardpage> 
+
   <!-- This page requires a setTimeout for onpageshow because it may be
        shown first -->
   <wizardpage pageid="startingTor" next="notUsed"
