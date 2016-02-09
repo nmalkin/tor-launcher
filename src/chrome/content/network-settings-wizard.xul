@@ -133,6 +133,27 @@
     </vbox>
   </wizardpage> 
 
+  <wizardpage pageid="inlineprogress" onpageshow="generateProgress();">
+    <vbox align="center">
+      <separator class="tall"></separator>
+      <label class ="tbb-wizardpage-title"> Connecting... </label>
+      <separator />
+      <label> Connection may take up to 2 minutes. </label>
+      <separator />
+      <image src="chrome://torlauncher/skin/progress-bar.png" minwidth="100%"
+      maxheight="60px"></image>
+      <separator />
+      <label class="heading"> Connecting with: </label>
+      <separator />
+      <label id = "progressBridge"></label>
+      <label id = "progressProxy"></label>
+      <label id = "progressAddress"></label>
+      <label id = "progressPort"></label>
+      <label id = "progressUsername"></label>
+      <label id = "progressPassword"></label>
+    </vbox>
+  </wizardpage> 
+
   <!-- This page requires a setTimeout for onpageshow because it may be
        shown first -->
   <wizardpage pageid="startingTor" next="notUsed"

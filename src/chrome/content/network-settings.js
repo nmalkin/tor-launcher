@@ -86,7 +86,26 @@ function generateSummary(){
     document.getElementById("summaryPassword").textContent = "Password: " + getElemValue(kProxyPassword);
   }
   else{
-    document.getElementById("summaryProxy").textContent = "Proxy Type: " + "No proxy selected."
+    document.getElementById("summaryProxy").textContent = "Proxy Type: " + "None selected."
+  }
+}
+
+function generateProgress(){
+  if (TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null)){
+    document.getElementById("progressBridge").textContent = "Bridge: " + TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null);
+  } 
+  else {
+    document.getElementById("progressBridge").textContent = "Bridge: None selected."
+  }
+  if (isProxyConfigured()){
+    document.getElementById("progressProxy").textContent = "Proxy Type: " + getElemValue(kProxyTypeMenulist, null)
+    document.getElementById("progressAddress").textContent ="Address: " + getElemValue(kProxyAddr, null);
+    document.getElementById("progressPort").textContent = "Port: " + getElemValue(kProxyPort, null);
+    document.getElementById("progressUsername").textContent = "Username: " + getElemValue(kProxyUsername);
+    document.getElementById("progressPassword").textContent = "Password: " + getElemValue(kProxyPassword);
+  }
+  else{
+    document.getElementById("progressProxy").textContent = "Proxy Type: " + "None selected."
   }
 }
 
