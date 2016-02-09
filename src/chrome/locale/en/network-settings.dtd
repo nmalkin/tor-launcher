@@ -4,6 +4,11 @@
 <!ENTITY torSettings.summaryPrompt1 "Ready to Connect!">
 <!ENTITY torSettings.summaryPrompt2 "Your chosen settings:">
 
+<!-- For inline progress page: -->
+<!ENTITY torSettings.progressPrompt1 "Connecting...">
+<!ENTITY torSettings.progressPrompt2 "Connection may take up to 2 minutes.">
+<!ENTITY torSettings.progressPrompt3 "Connecting with:">
+
 <!-- For locale picker: -->
 <!ENTITY torlauncher.localePicker.title "Tor Browser Language">
 <!ENTITY torlauncher.localePicker.prompt "Please select a language.">

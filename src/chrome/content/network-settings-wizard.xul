@@ -136,14 +136,14 @@
   <wizardpage pageid="inlineprogress" onpageshow="generateProgress();">
     <vbox align="center">
       <separator class="tall"></separator>
-      <label class ="tbb-wizardpage-title"> Connecting... </label>
+      <label class ="tbb-wizardpage-title"> &torSettings.progressPrompt1;</label>
       <separator />
-      <label> Connection may take up to 2 minutes. </label>
+      <label>&torSettings.progressPrompt2; </label>
       <separator />
       <image src="chrome://torlauncher/skin/progress-bar.png" minwidth="100%"
       maxheight="60px"></image>
-      <separator />
-      <label class="heading"> Connecting with: </label>
+      <separator class="tall"></separator>
+      <label class="heading">&torSettings.progressPrompt3;</label>
       <separator />
       <label id = "progressBridge"></label>
       <label id = "progressProxy"></label>
