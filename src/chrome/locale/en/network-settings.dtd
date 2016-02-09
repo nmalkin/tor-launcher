@@ -3,12 +3,6 @@
 <!-- For wizard summary page: -->
 <!ENTITY torSettings.summaryPrompt1 "Ready to Connect!">
 <!ENTITY torSettings.summaryPrompt2 "The browser will use the following settings to connect to the Tor network:">
-<!ENTITY torSettings.summaryBridge "Bridge: ">
-<!ENTITY torSettings.summaryProxy "Proxy: ">
-<!ENTITY torSettings.summaryAddress "Address: ">
-<!ENTITY torSettings.summaryPort "Port: ">
-<!ENTITY torSettings.summaryUsername "Username: ">
-<!ENTITY torSettings.summaryPassword "Password: ">
 
 <!-- For locale picker: -->
 <!ENTITY torlauncher.localePicker.title "Tor Browser Language">

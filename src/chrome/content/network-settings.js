@@ -71,6 +71,24 @@ var gIsBootstrapComplete = false;
 var gRestoreAfterHelpPanelID = null;
 var gActiveTopics = [];  // Topics for which an observer is currently installed.
 
+function generateSummary(){
+  if (TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null)){
+    document.getElementById("summaryBridge").textContent = "Bridge: " + TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null);
+  } 
+  else {
+    document.getElementById("summaryBridge").textContent = "Bridge: No bridge selected."
+  }
+  if (isProxyConfigured()){
+    document.getElementById("summaryProxy").textContent = "Proxy Type: " + getElemValue(kProxyTypeMenulist, null)
+    document.getElementById("summaryAddress").textContent ="Address: " + getElemValue(kProxyAddr, null);
+    document.getElementById("summaryPort").textContent = "Port: " + getElemValue(kProxyPort, null);
+    document.getElementById("summaryUsername").textContent = "Username: " + getElemValue(kProxyUsername);
+    document.getElementById("summaryPassword").textContent = "Password: " + getElemValue(kProxyPassword);
+  }
+  else{
+    document.getElementById("summaryProxy").textContent = "Proxy Type: " + "No proxy selected."
+  }
+}
 
 function initDialogCommon(aHasQuitButton)
 {

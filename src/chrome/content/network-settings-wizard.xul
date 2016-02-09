@@ -115,7 +115,7 @@
     <groupbox id="proxySpecificSettings" />
   </wizardpage>
 
-  <wizardpage pageid="summary">
+  <wizardpage pageid="summary" onpageshow="generateSummary();">
     <image src="chrome://torlauncher/skin/step3.png" minwidth="100%"
     maxheight="80px"></image>
     <vbox align="center">
@@ -124,12 +124,12 @@
       <separator />
       <label>&torSettings.summaryPrompt2;</label>
       <separator />
-      <label>&torSettings.summaryBridge;</label>
-      <label>&torSettings.summaryProxy;</label>
-      <label>&torSettings.summaryAddress;</label>
-      <label>&torSettings.summaryPort;</label>
-      <label>&torSettings.summaryUsername;</label>
-      <label>&torSettings.summaryPassword;</label>
+      <label id = "summaryBridge"></label>
+      <label id = "summaryProxy"></label>
+      <label id = "summaryAddress"></label>
+      <label id = "summaryPort"></label>
+      <label id = "summaryUsername"></label>
+      <label id = "summaryPassword"></label>
     </vbox>
   </wizardpage> 
 
