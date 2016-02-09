@@ -119,10 +119,10 @@
     <image src="chrome://torlauncher/skin/step3.png" minwidth="100%"
     maxheight="80px"></image>
     <vbox align="center">
-      <separator />
-      <label>&torSettings.summaryPrompt1;</label>
-      <separator />
-      <label>&torSettings.summaryPrompt2;</label>
+      <separator class="tall"></separator>
+      <label class ="tbb-wizardpage-title">&torSettings.summaryPrompt1;</label>
+      <separator class="tall"></separator>
+      <label class="heading">&torSettings.summaryPrompt2;</label>
       <separator />
       <label id = "summaryBridge"></label>
       <label id = "summaryProxy"></label>
