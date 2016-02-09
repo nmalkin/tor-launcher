@@ -21,11 +21,9 @@
 <!ENTITY torSettings.no "No">
 
 <!ENTITY torSettings.firstQuestion "Which of the following best describes your situation?">
-<!ENTITY torSettings.configurePrompt1 "Choose this to configure a bridge and change your proxy">
-<!ENTITY torSettings.configurePrompt2 "settings before connecting to Tor.">
+<!ENTITY torSettings.configurePrompt "Choose advanced connection settings. For some censored situations.">
 <!ENTITY torSettings.configure "Configure Manually">
-<!ENTITY torSettings.connectPrompt2 "Choose this to use default settings (no bridges, no proxies)">
-<!ENTITY torSettings.connectPrompt3 "to connect to the Tor network. This will work in most situations.">
+<!ENTITY torSettings.connectPrompt "Connect with defaults. This will work in most situations.">
 <!ENTITY torSettings.connect "Connect">
 
 <!ENTITY torSettings.or "OR">

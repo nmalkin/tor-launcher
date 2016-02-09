@@ -36,15 +36,13 @@
       <separator />
       <button label="&torSettings.connect;" id="connect_button" oncommand="useSettings();"/>
       <separator class="short"/>
-      <label>&torSettings.connectPrompt2;</label>
-      <label>&torSettings.connectPrompt3;</label>
+      <label>&torSettings.connectPrompt;</label>
       <separator class="short"/>
-      <label>&torSettings.or;</label>
+      <label class="heading">&torSettings.or;</label>
       <separator class="short"/>
       <button label="&torSettings.configure;" id="configure_button" oncommand="onWizardConfigure();"/>
       <separator class="short"/>
-      <label>&torSettings.configurePrompt1;</label>
-      <label>&torSettings.configurePrompt2;</label>
+      <label>&torSettings.configurePrompt;</label>
     </vbox>
   </wizardpage>
 
