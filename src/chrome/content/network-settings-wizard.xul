@@ -32,7 +32,7 @@
   <wizardpage pageid="first" next="proxy" onextra2="onCopyLog();"
               onpageshow="setTimeout(function() { showWizardNavButtons(false); }, 0);">
     <vbox class="firstResponses" align="center">
-      <image class="tbb-logo" />
+      <image src="chrome://torlauncher/skin/tbb-logo.png" />
       <separator />
       <button label="&torSettings.connect;" id="connect_button" oncommand="useSettings();"/>
       <separator class="short"/>
@@ -193,11 +193,9 @@
   <wizardpage pageid="discardSettings" next="notUsed"
               onpageshow="showWizardNavButtons(false);"
               onextra2="onCopyLog();">
-    <hbox class="tbb-header">
-      <vbox class="tbb-logo-box" align="start">
-        <image class="tbb-logo" />
-      </vbox>
-    </hbox>
+    <vbox align="center">
+    <image src="chrome://torlauncher/skin/tbb-logo.png" />
+    </vbox>
     <spring flex="1" />
     <hbox>
       <spring flex="1" />

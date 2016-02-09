@@ -63,7 +63,7 @@ wizard radiogroup {
   margin: 5px 0px 8px 25px;
 }
 
-.tbb-header groupbox {
+groupbox {
   margin-left: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -97,17 +97,6 @@ separator.tall {
 
 button.firstAnswer {
   margin-top: 0px;
-}
-
-.tbb-logo-box {
-  height: 80px;
-}
-
-.tbb-logo {
-  list-style-image: url("chrome://torlauncher/skin/tbb-logo.png");
-  width: 115px;
-  height: 80px;
-  margin-right: 20px;
 }
 
 wizard[tor_hide_browser_logo="true"] .tbb-logo,
