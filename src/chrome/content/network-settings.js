@@ -76,7 +76,7 @@ function generateSummary(){
     document.getElementById("summaryBridge").textContent = "Bridge: " + TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null);
   } 
   else {
-    document.getElementById("summaryBridge").textContent = "Bridge: No bridge selected."
+    document.getElementById("summaryBridge").textContent = "Bridge: None selected."
   }
   if (isProxyConfigured()){
     document.getElementById("summaryProxy").textContent = "Proxy Type: " + getElemValue(kProxyTypeMenulist, null)
