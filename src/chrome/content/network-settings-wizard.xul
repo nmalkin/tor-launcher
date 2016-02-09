@@ -49,7 +49,7 @@
   <wizardpage pageid="bridges" next="proxy" onextra2="onCopyLog();"
               onpageshow="showWizardNavButtons(true);"
               onpageadvanced="return onWizardUseBridgesNext(this)">
-    <image src="chrome://torlauncher/skin/step2.png" minwidth="100%"
+    <image src="chrome://torlauncher/skin/step-bridge.png" minwidth="100%"
     maxheight="80px"></image>
     <separator />
     <hbox>
@@ -69,7 +69,7 @@
 
   <wizardpage pageid="bridgeSettings" next="proxy" onextra2="onCopyLog();"
               onpageshow="onWizardBridgeSettingsShow();">
-    <image src="chrome://torlauncher/skin/step2.png" minwidth="100%"
+    <image src="chrome://torlauncher/skin/step-bridge.png" minwidth="100%"
     maxheight="80px"></image>
     <separator />
     <vbox align="center">
@@ -84,7 +84,7 @@
   <wizardpage pageid="proxy" onextra2="onCopyLog();"
               onpageshow="onWizardUseProxyRadioChange()"
               onpageadvanced="return onWizardProxyNext(this);">
-    <image src="chrome://torlauncher/skin/step1.png" minwidth="100%"
+    <image src="chrome://torlauncher/skin/step-proxy.png" minwidth="100%"
     maxheight="80px"></image>
     <separator />
     <hbox>
@@ -106,7 +106,7 @@
   <wizardpage pageid="proxyYES" onextra2="onCopyLog();"
               onpageshow="onWizardProxySettingsShow()"
               onpageadvanced="return (getAndValidateProxySettings() != null)">
-    <image src="chrome://torlauncher/skin/step1.png" minwidth="100%"
+    <image src="chrome://torlauncher/skin/step-proxy.png" minwidth="100%"
     maxheight="80px"></image>
     <separator />
     <label class="instructions">&torSettings.enterProxy;</label>
@@ -114,7 +114,7 @@
   </wizardpage>
 
   <wizardpage pageid="summary" onpageshow="generateSummary();">
-    <image src="chrome://torlauncher/skin/step3.png" minwidth="100%"
+    <image src="chrome://torlauncher/skin/step-summary.png" minwidth="100%"
     maxheight="80px"></image>
     <vbox align="center">
       <separator class="tall"></separator>
