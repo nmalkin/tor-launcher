@@ -82,8 +82,8 @@ separator.tall {
   height: 2.1em;
 }
 
-.help,.heading,
-.question {
+.help .heading,
+.question, .heading {
   font-weight: bold;
 }
 
