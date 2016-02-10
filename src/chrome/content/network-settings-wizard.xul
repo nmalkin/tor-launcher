@@ -132,12 +132,30 @@
       <separator class="tall"></separator>
       <label class="heading">&torSettings.summaryPrompt2;</label>
       <separator />
-      <label id = "summaryBridge"></label>
-      <label id = "summaryProxy"></label>
-      <label id = "summaryAddress"></label>
-      <label id = "summaryPort"></label>
-      <label id = "summaryUsername"></label>
-      <label id = "summaryPassword"></label>
+      <hbox>
+        <label>&torSettings.labelBridge;</label>
+        <label id = "summaryBridge"></label>
+      </hbox>
+      <hbox>
+        <label>&torSettings.labelProxy;</label>
+        <label id = "summaryProxy"></label>
+      </hbox>
+      <hbox>
+        <label id = "summaryAddressLabel">&torSettings.labelAddress;</label>
+        <label id = "summaryAddress"></label>
+      </hbox>
+      <hbox>
+        <label id = "summaryPortLabel">&torSettings.labelPort;</label>
+        <label id = "summaryPort"></label>
+      </hbox>
+      <hbox>
+        <label id = "summaryUsernameLabel">&torSettings.labelUsername;</label>
+        <label id = "summaryUsername"></label>
+      </hbox>
+      <hbox>
+        <label id = "summaryPasswordLabel">&torSettings.labelPassword;</label>
+        <label id = "summaryPassword"></label>
+      </hbox>
     </vbox>
   </wizardpage> 
 
@@ -153,12 +171,30 @@
       <separator class="tall"></separator>
       <label class="heading">&torSettings.progressPrompt3;</label>
       <separator />
-      <label id = "progressBridge"></label>
-      <label id = "progressProxy"></label>
-      <label id = "progressAddress"></label>
-      <label id = "progressPort"></label>
-      <label id = "progressUsername"></label>
-      <label id = "progressPassword"></label>
+      <hbox>
+        <label>&torSettings.labelBridge;</label>
+        <label id = "progressBridge"></label>
+      </hbox>
+      <hbox>
+        <label>&torSettings.labelProxy;</label>
+        <label id = "progressProxy"></label>
+      </hbox>
+      <hbox>
+        <label id = "progressAddressLabel">&torSettings.labelAddress;</label>
+        <label id = "progressAddress"></label>
+      </hbox>
+      <hbox>
+        <label id = "progressPortLabel">&torSettings.labelPort;</label>
+        <label id = "progressPort"></label>
+      </hbox>
+      <hbox>
+        <label id = "progressUsernameLabel">&torSettings.labelUsername;</label>
+        <label id = "progressUsername"></label>
+      </hbox>
+      <hbox>
+        <label id = "progressPasswordLabel">&torSettings.labelPassword;</label>
+        <label id = "progressPassword"></label>
+      </hbox>
     </vbox>
   </wizardpage> 
 

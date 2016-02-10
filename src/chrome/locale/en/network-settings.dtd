@@ -9,6 +9,14 @@
 <!ENTITY torSettings.progressPrompt2 "Connection may take up to 2 minutes.">
 <!ENTITY torSettings.progressPrompt3 "Connecting with:">
 
+<!-- For summary & inline progress page: -->
+<!ENTITY torSettings.labelBridge "Bridge:&#160;">
+<!ENTITY torSettings.labelProxy "Proxy Type:&#160;">
+<!ENTITY torSettings.labelAddress "Address:&#160;">
+<!ENTITY torSettings.labelPort "Port:&#160;">
+<!ENTITY torSettings.labelUsername "Username:&#160;">
+<!ENTITY torSettings.labelPassword "Password:&#160;">
+
 <!-- For locale picker: -->
 <!ENTITY torlauncher.localePicker.title "Tor Browser Language">
 <!ENTITY torlauncher.localePicker.prompt "Please select a language.">

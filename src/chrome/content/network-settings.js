@@ -73,39 +73,47 @@ var gActiveTopics = [];  // Topics for which an observer is currently installed.
 
 function generateSummary(){
   if (TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null)){
-    document.getElementById("summaryBridge").textContent = "Bridge: " + TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null);
+    document.getElementById("summaryBridge").textContent = TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null);
   } 
   else {
-    document.getElementById("summaryBridge").textContent = "Bridge: None selected."
+    document.getElementById("summaryBridge").textContent = "None selected."
   }
   if (isProxyConfigured()){
-    document.getElementById("summaryProxy").textContent = "Proxy Type: " + getElemValue(kProxyTypeMenulist, null)
-    document.getElementById("summaryAddress").textContent ="Address: " + getElemValue(kProxyAddr, null);
-    document.getElementById("summaryPort").textContent = "Port: " + getElemValue(kProxyPort, null);
-    document.getElementById("summaryUsername").textContent = "Username: " + getElemValue(kProxyUsername);
-    document.getElementById("summaryPassword").textContent = "Password: " + getElemValue(kProxyPassword);
+    document.getElementById("summaryProxy").textContent = getElemValue(kProxyTypeMenulist, null)
+    document.getElementById("summaryAddress").textContent = getElemValue(kProxyAddr, null);
+    document.getElementById("summaryPort").textContent = getElemValue(kProxyPort, null);
+    document.getElementById("summaryUsername").textContent = getElemValue(kProxyUsername);
+    document.getElementById("summaryPassword").textContent = getElemValue(kProxyPassword);
   }
   else{
-    document.getElementById("summaryProxy").textContent = "Proxy Type: " + "None selected."
+    document.getElementById("summaryProxy").textContent = "None selected."
+    document.getElementById("summaryAddressLabel").textContent = ""
+    document.getElementById("summaryPortLabel").textContent = ""
+    document.getElementById("summaryUsernameLabel").textContent = ""
+    document.getElementById("summaryPasswordLabel").textContent = ""
   }
 }
 
 function generateProgress(){
   if (TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null)){
-    document.getElementById("progressBridge").textContent = "Bridge: " + TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null);
+    document.getElementById("progressBridge").textContent = TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null);
   } 
   else {
-    document.getElementById("progressBridge").textContent = "Bridge: None selected."
+    document.getElementById("progressBridge").textContent = "None selected."
   }
   if (isProxyConfigured()){
-    document.getElementById("progressProxy").textContent = "Proxy Type: " + getElemValue(kProxyTypeMenulist, null)
-    document.getElementById("progressAddress").textContent ="Address: " + getElemValue(kProxyAddr, null);
-    document.getElementById("progressPort").textContent = "Port: " + getElemValue(kProxyPort, null);
-    document.getElementById("progressUsername").textContent = "Username: " + getElemValue(kProxyUsername);
-    document.getElementById("progressPassword").textContent = "Password: " + getElemValue(kProxyPassword);
+    document.getElementById("progressProxy").textContent = getElemValue(kProxyTypeMenulist, null)
+    document.getElementById("progressAddress").textContent = getElemValue(kProxyAddr, null);
+    document.getElementById("progressPort").textContent = getElemValue(kProxyPort, null);
+    document.getElementById("progressUsername").textContent = getElemValue(kProxyUsername);
+    document.getElementById("progressPassword").textContent = getElemValue(kProxyPassword);
   }
   else{
-    document.getElementById("progressProxy").textContent = "Proxy Type: " + "None selected."
+    document.getElementById("progressProxy").textContent = "None selected."
+    document.getElementById("progressAddressLabel").textContent = ""
+    document.getElementById("progressPortLabel").textContent = ""
+    document.getElementById("progressUsernameLabel").textContent = ""
+    document.getElementById("progressPasswordLabel").textContent = ""
   }
 }
 
