@@ -417,12 +417,21 @@ function onWizardConfigure()
 }
 
 function onWizardProxySettingsShow()
-{
-  var wizard = getWizard();
-  if (wizard)
-  {
-    wizard.setAttribute("lastpage", true);
-    wizard._wizardButtons.onPageChange();
+{ 
+  var isProxyRequired = false; 
+  if (isProxyRequired){ //local proxy detected
+    document.getElementById("proxyPrompt").textContent = "We detected these proxy settings on your machine. You likely need these to connect.";
+    document.getElementById("proxyRadioWithout").label = "Proceed without proxy settings";
+    document.getElementById("proxyRadioWith").label = "Connect with local proxy settings (recommended)";
+    document.getElementById("proxyRadioGroup").selectedItem = document.getElementById("proxyRadioWith");
+    document.getElementById("proxySpecificSettings").setAttribute("hidden", false)
+  }
+  else{ // no proxy required
+    document.getElementById("proxyPrompt").textContent = "We detected you don't need a proxy.";
+    document.getElementById("proxyRadioWithout").label = "Proceed without proxy settings (recommended)";
+    document.getElementById("proxyRadioWith").label = "Connect with local proxy settings";
+    document.getElementById("proxyRadioGroup").selectedItem = document.getElementById("proxyRadioWithout");
+    document.getElementById("proxySpecificSettings").setAttribute("hidden", true);
   }
 }
 

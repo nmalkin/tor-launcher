@@ -93,8 +93,14 @@
       <image src="chrome://torlauncher/skin/step-proxy.png"></image>
     </hbox>
     <separator />
-    <label class="instructions">&torSettings.enterProxy;</label>
-    <groupbox id="proxySpecificSettings" />
+    <label id = "proxyPrompt" class="instructions"></label>
+    <radiogroup id="proxyRadioGroup"
+        oncommand="onWizardUseProxyRadioChange()">
+      <radio id="proxyRadioWithout" label="overwritten" />
+      <radio id="proxyRadioWith" label="overwritten" />
+    </radiogroup>
+    <separator class="tall"></separator>
+    <groupbox id="proxySpecificSettings"/>
   </wizardpage>
 
   <wizardpage pageid="summary" onpageshow="onWizardSummary();">
