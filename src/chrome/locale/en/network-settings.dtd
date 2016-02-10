@@ -1,5 +1,13 @@
 <!ENTITY torsettings.dialog.title "Tor Network Settings">
 
+<!-- For our new proxy page: -->
+<!ENTITY torSettings.proxyPromptNO "We detected you don't need a proxy.">
+<!ENTITY torSettings.proxyPromptYES "We detected these proxy settings on your machine. You likely need these to connect.">
+<!ENTITY torSettings.noProxyDetected "Proceed without proxy settings">
+<!ENTITY torSettings.noProxyDetectedR "Proceed without proxy settings (recommended)">
+<!ENTITY torSettings.yesProxyDetected "Connect with local proxy settings">
+<!ENTITY torSettings.yesProxyDetectedR "Connect with local proxy settings (recommended)">
+
 <!-- For wizard summary page: -->
 <!ENTITY torSettings.summaryPrompt1 "Ready to Connect!">
 <!ENTITY torSettings.summaryPrompt2 "Your chosen settings:">
