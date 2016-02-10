@@ -478,6 +478,7 @@ function onBridgeTypeRadioChange()
 }
 
 function onWizardSummary(){
+  //make this last page somehow
   if (TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null)){
     document.getElementById("summaryBridge").textContent = TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null);
   } 
@@ -498,19 +499,6 @@ function onWizardSummary(){
     document.getElementById("summaryUsernameLabel").textContent = ""
     document.getElementById("summaryPasswordLabel").textContent = ""
   }
-  """
-  Make the summary page the last page. 
-
-  function onWizardProxySettingsShow()
-  {
-    var wizard = getWizard();
-    if (wizard)
-    {
-      wizard.setAttribute("lastpage", true);
-      wizard._wizardButtons.onPageChange();
-    }
-  }
-  """
 }
 
 function onWizardProgress(){
