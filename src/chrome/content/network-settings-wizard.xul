@@ -50,8 +50,9 @@
               onpageshow="showWizardNavButtons(true);"
               onpageadvanced="return onWizardUseBridgesNext(this)">
     <separator class="tall"></separator>
-    <image src="chrome://torlauncher/skin/step-bridge.png" minwidth="100%"
-    maxheight="50px"></image>
+    <hbox class="steps">
+      <image src="chrome://torlauncher/skin/step-bridge.png"></image>
+    </hbox>
     <separator />
     <hbox>
       <vbox flex="1">
@@ -71,8 +72,9 @@
   <wizardpage pageid="bridgeSettings" next="proxy" onextra2="onCopyLog();"
               onpageshow="onWizardBridgeSettingsShow();">
     <separator class="tall"></separator>
-    <image src="chrome://torlauncher/skin/step-bridge.png" minwidth="100%"
-    maxheight="50px"></image>
+    <hbox class="steps">
+      <image src="chrome://torlauncher/skin/step-bridge.png"></image>
+    </hbox>
     <separator />
     <vbox align="center">
       <label id="bridgeSettingsPrompt"
@@ -87,8 +89,9 @@
               onpageshow="onWizardUseProxyRadioChange()"
               onpageadvanced="return onWizardProxyNext(this);">
     <separator class="tall"></separator>
-    <image src="chrome://torlauncher/skin/step-proxy.png" minwidth="100%"
-    maxheight="50px"></image>
+    <hbox class="steps">
+      <image src="chrome://torlauncher/skin/step-proxy.png"></image>
+    </hbox>
     <separator />
     <hbox>
       <vbox flex="1">
@@ -110,8 +113,9 @@
               onpageshow="onWizardProxySettingsShow()"
               onpageadvanced="return (getAndValidateProxySettings() != null)">
     <separator class="tall"></separator>
-    <image src="chrome://torlauncher/skin/step-proxy.png" minwidth="100%"
-    maxheight="50px"></image>
+    <hbox class="steps">
+      <image src="chrome://torlauncher/skin/step-proxy.png"></image>
+    </hbox>
     <separator />
     <label class="instructions">&torSettings.enterProxy;</label>
     <groupbox id="proxySpecificSettings" />
@@ -119,7 +123,9 @@
 
   <wizardpage pageid="summary" onpageshow="generateSummary();">
     <separator class="tall"></separator>
-    <image src="chrome://torlauncher/skin/step-summary.png" minwidth="100%" maxheight="50px"></image>
+    <hbox class="steps">
+      <image src="chrome://torlauncher/skin/step-summary.png"></image>
+    </hbox>
     <vbox align="center">
       <separator class="tall"></separator>
       <label class ="tbb-wizardpage-title">&torSettings.summaryPrompt1;</label>

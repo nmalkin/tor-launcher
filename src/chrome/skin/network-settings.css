@@ -17,6 +17,15 @@
   -moz-appearance: none;
 }
 
+.steps {
+  -moz-box-pack: center;
+}
+
+.steps image {
+  max-width: 42em;
+  height: auto;
+}
+
 dialog {
   width: 45em;
   height: 41em;
