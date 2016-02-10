@@ -121,7 +121,7 @@
     <groupbox id="proxySpecificSettings" />
   </wizardpage>
 
-  <wizardpage pageid="summary" onpageshow="generateSummary();">
+  <wizardpage pageid="summary" onpageshow="onWizardSummary();">
     <separator class="tall"></separator>
     <hbox class="steps">
       <image src="chrome://torlauncher/skin/step-summary.png"></image>
@@ -153,7 +153,7 @@
     </vbox>
   </wizardpage> 
 
-  <wizardpage pageid="inlineprogress" onpageshow="generateProgress();">
+  <wizardpage pageid="inlineprogress" onpageshow="onWizardProgress();">
     <vbox align="center">
       <separator class="tall"></separator>
       <label class ="tbb-wizardpage-title"> &torSettings.progressPrompt1;</label>
