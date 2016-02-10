@@ -71,65 +71,6 @@ var gIsBootstrapComplete = false;
 var gRestoreAfterHelpPanelID = null;
 var gActiveTopics = [];  // Topics for which an observer is currently installed.
 
-function onWizardSummary(){
-  if (TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null)){
-    document.getElementById("summaryBridge").textContent = TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null);
-  } 
-  else {
-    document.getElementById("summaryBridge").textContent = "None selected."
-  }
-  if (isProxyConfigured()){
-    document.getElementById("summaryProxy").textContent = getElemValue(kProxyTypeMenulist, null)
-    document.getElementById("summaryAddress").textContent = getElemValue(kProxyAddr, null);
-    document.getElementById("summaryPort").textContent = getElemValue(kProxyPort, null);
-    document.getElementById("summaryUsername").textContent = getElemValue(kProxyUsername);
-    document.getElementById("summaryPassword").textContent = getElemValue(kProxyPassword);
-  }
-  else{
-    document.getElementById("summaryProxy").textContent = "None selected."
-    document.getElementById("summaryAddressLabel").textContent = ""
-    document.getElementById("summaryPortLabel").textContent = ""
-    document.getElementById("summaryUsernameLabel").textContent = ""
-    document.getElementById("summaryPasswordLabel").textContent = ""
-  }
-  """
-  Make the summary page the last page. 
-
-  function onWizardProxySettingsShow()
-  {
-    var wizard = getWizard();
-    if (wizard)
-    {
-      wizard.setAttribute("lastpage", true);
-      wizard._wizardButtons.onPageChange();
-    }
-  }
-  """
-}
-
-function onWizardProgress(){
-  if (TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null)){
-    document.getElementById("progressBridge").textContent = TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null);
-  } 
-  else {
-    document.getElementById("progressBridge").textContent = "None selected."
-  }
-  if (isProxyConfigured()){
-    document.getElementById("progressProxy").textContent = getElemValue(kProxyTypeMenulist, null)
-    document.getElementById("progressAddress").textContent = getElemValue(kProxyAddr, null);
-    document.getElementById("progressPort").textContent = getElemValue(kProxyPort, null);
-    document.getElementById("progressUsername").textContent = getElemValue(kProxyUsername);
-    document.getElementById("progressPassword").textContent = getElemValue(kProxyPassword);
-  }
-  else{
-    document.getElementById("progressProxy").textContent = "None selected."
-    document.getElementById("progressAddressLabel").textContent = ""
-    document.getElementById("progressPortLabel").textContent = ""
-    document.getElementById("progressUsernameLabel").textContent = ""
-    document.getElementById("progressPasswordLabel").textContent = ""
-  }
-}
-
 function initDialogCommon(aHasQuitButton)
 {
   gHasQuitButton = aHasQuitButton;
@@ -550,6 +491,65 @@ function onBridgeTypeRadioChange()
   var elem = document.getElementById(focusElemID);
   if (elem)
     elem.focus();
+}
+
+function onWizardSummary(){
+  if (TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null)){
+    document.getElementById("summaryBridge").textContent = TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null);
+  } 
+  else {
+    document.getElementById("summaryBridge").textContent = "None selected."
+  }
+  if (isProxyConfigured()){
+    document.getElementById("summaryProxy").textContent = getElemValue(kProxyTypeMenulist, null)
+    document.getElementById("summaryAddress").textContent = getElemValue(kProxyAddr, null);
+    document.getElementById("summaryPort").textContent = getElemValue(kProxyPort, null);
+    document.getElementById("summaryUsername").textContent = getElemValue(kProxyUsername);
+    document.getElementById("summaryPassword").textContent = getElemValue(kProxyPassword);
+  }
+  else{
+    document.getElementById("summaryProxy").textContent = "None selected."
+    document.getElementById("summaryAddressLabel").textContent = ""
+    document.getElementById("summaryPortLabel").textContent = ""
+    document.getElementById("summaryUsernameLabel").textContent = ""
+    document.getElementById("summaryPasswordLabel").textContent = ""
+  }
+  """
+  Make the summary page the last page. 
+
+  function onWizardProxySettingsShow()
+  {
+    var wizard = getWizard();
+    if (wizard)
+    {
+      wizard.setAttribute("lastpage", true);
+      wizard._wizardButtons.onPageChange();
+    }
+  }
+  """
+}
+
+function onWizardProgress(){
+  if (TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null)){
+    document.getElementById("progressBridge").textContent = TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null);
+  } 
+  else {
+    document.getElementById("progressBridge").textContent = "None selected."
+  }
+  if (isProxyConfigured()){
+    document.getElementById("progressProxy").textContent = getElemValue(kProxyTypeMenulist, null)
+    document.getElementById("progressAddress").textContent = getElemValue(kProxyAddr, null);
+    document.getElementById("progressPort").textContent = getElemValue(kProxyPort, null);
+    document.getElementById("progressUsername").textContent = getElemValue(kProxyUsername);
+    document.getElementById("progressPassword").textContent = getElemValue(kProxyPassword);
+  }
+  else{
+    document.getElementById("progressProxy").textContent = "None selected."
+    document.getElementById("progressAddressLabel").textContent = ""
+    document.getElementById("progressPortLabel").textContent = ""
+    document.getElementById("progressUsernameLabel").textContent = ""
+    document.getElementById("progressPasswordLabel").textContent = ""
+  }
 }
 
 
