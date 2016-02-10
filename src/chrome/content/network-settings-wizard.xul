@@ -86,30 +86,6 @@
   </wizardpage>
 
   <wizardpage pageid="proxy" onextra2="onCopyLog();"
-              onpageshow="onWizardUseProxyRadioChange()"
-              onpageadvanced="return onWizardProxyNext(this);">
-    <separator class="tall"></separator>
-    <hbox class="steps">
-      <image src="chrome://torlauncher/skin/step-proxy.png"></image>
-    </hbox>
-    <separator />
-    <hbox>
-      <vbox flex="1">
-        <label class="question">&torSettings.proxyQuestion;</label>
-        <radiogroup id="proxyRadioGroup"
-                    oncommand="onWizardUseProxyRadioChange()">
-          <radio id="proxyRadioYes" label="&torSettings.yes;" />
-          <radio id="proxyRadioNo" label="&torSettings.no;" selected="true" />
-        </radiogroup>
-        <description class="questionHelp">&torSettings.proxyExplanation1;
-        </description>
-        <description class="questionHelp">&torSettings.proxyExplanation2;
-        </description>
-      </vbox>
-    </hbox>
-  </wizardpage>
-
-  <wizardpage pageid="proxyYES" onextra2="onCopyLog();"
               onpageshow="onWizardProxySettingsShow()"
               onpageadvanced="return (getAndValidateProxySettings() != null)">
     <separator class="tall"></separator>

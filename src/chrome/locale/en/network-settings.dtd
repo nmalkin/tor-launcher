@@ -36,12 +36,6 @@
 
 <!ENTITY torSettings.or "OR">
 
-<!ENTITY torSettings.proxyPageTitle "Local Proxy Configuration">
-<!ENTITY torSettings.proxyQuestion "Does this computer need to use a local proxy to access the Internet?">
-<!-- see https://www.torproject.org/docs/proxychain.html.en -->
-<!ENTITY torSettings.proxyExplanation1 "In most cases a local proxy is not needed, but it may be required when connecting through a company, school, or university network.">
-<!ENTITY torSettings.proxyExplanation2 "If you are not sure how to answer this question, look at the Internet settings in another browser or check your system's network settings to see whether a local proxy is needed.">
-<!ENTITY torSettings.enterProxy "Enter the proxy settings.">
 <!ENTITY torSettings.bridgePageTitle "Tor Bridges Configuration">
 <!ENTITY torSettings.bridgeQuestion "Does your Internet Service Provider (ISP) block or otherwise censor connections to the Tor Network?">
 <!ENTITY torSettings.bridgeExplanation1 "If you are not sure how to answer this question, choose No (if you are unable to connect to the Tor network without a bridge, you can add one later).">

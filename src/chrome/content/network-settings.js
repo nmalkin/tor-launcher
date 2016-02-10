@@ -413,33 +413,8 @@ function removeSettingsAndConnect()
 
 function onWizardConfigure()
 {
-  getWizard().advance("bridges");
+  getWizard().advance("proxy");
 }
-
-
-function onWizardProxyNext(aWizPage)
-{
-  if (aWizPage)
-  {
-    var hasProxy = getElemValue("proxyRadioYes", false);
-    aWizPage.next = (hasProxy) ? "proxyYES" : "";
-  }
-
-  return true;
-}
-
-
-function onWizardUseProxyRadioChange()
-{
-  var wizard = getWizard();
-  if (wizard && wizard.currentPage)
-  {
-    var hasProxy = getElemValue("proxyRadioYes", false);
-    wizard.setAttribute("lastpage", !hasProxy);
-    wizard._wizardButtons.onPageChange();
-  }
-}
-
 
 function onWizardProxySettingsShow()
 {
