@@ -133,28 +133,22 @@
       <label class="heading">&torSettings.summaryPrompt2;</label>
       <separator />
       <hbox>
-        <label>&torSettings.labelBridge;</label>
-        <label id = "summaryBridge"></label>
-      </hbox>
-      <hbox>
-        <label>&torSettings.labelProxy;</label>
-        <label id = "summaryProxy"></label>
-      </hbox>
-      <hbox>
-        <label id = "summaryAddressLabel">&torSettings.labelAddress;</label>
-        <label id = "summaryAddress"></label>
-      </hbox>
-      <hbox>
-        <label id = "summaryPortLabel">&torSettings.labelPort;</label>
-        <label id = "summaryPort"></label>
-      </hbox>
-      <hbox>
-        <label id = "summaryUsernameLabel">&torSettings.labelUsername;</label>
-        <label id = "summaryUsername"></label>
-      </hbox>
-      <hbox>
-        <label id = "summaryPasswordLabel">&torSettings.labelPassword;</label>
-        <label id = "summaryPassword"></label>
+        <vbox align="right">
+          <label>&torSettings.labelBridge;</label>
+          <label>&torSettings.labelProxy;</label>
+          <label id = "summaryAddressLabel">&torSettings.labelAddress;</label>
+          <label id = "summaryPortLabel">&torSettings.labelPort;</label>
+          <label id = "summaryUsernameLabel">&torSettings.labelUsername;</label>
+          <label id = "summaryPasswordLabel">&torSettings.labelPassword;</label>
+        </vbox>
+        <vbox align="left">
+          <label id = "summaryBridge" class = "heading"></label>
+          <label id = "summaryProxy" class = "heading"></label>
+          <label id = "summaryAddress" class = "heading"></label>
+          <label id = "summaryPort" class = "heading"></label>
+          <label id = "summaryUsername" class = "heading"></label>
+          <label id = "summaryPassword" class = "heading"></label>
+        </vbox>
       </hbox>
     </vbox>
   </wizardpage> 
@@ -172,28 +166,22 @@
       <label class="heading">&torSettings.progressPrompt3;</label>
       <separator />
       <hbox>
-        <label>&torSettings.labelBridge;</label>
-        <label id = "progressBridge"></label>
-      </hbox>
-      <hbox>
-        <label>&torSettings.labelProxy;</label>
-        <label id = "progressProxy"></label>
-      </hbox>
-      <hbox>
-        <label id = "progressAddressLabel">&torSettings.labelAddress;</label>
-        <label id = "progressAddress"></label>
-      </hbox>
-      <hbox>
-        <label id = "progressPortLabel">&torSettings.labelPort;</label>
-        <label id = "progressPort"></label>
-      </hbox>
-      <hbox>
-        <label id = "progressUsernameLabel">&torSettings.labelUsername;</label>
-        <label id = "progressUsername"></label>
-      </hbox>
-      <hbox>
-        <label id = "progressPasswordLabel">&torSettings.labelPassword;</label>
-        <label id = "progressPassword"></label>
+        <vbox align="right">
+          <label>&torSettings.labelBridge;</label>
+          <label>&torSettings.labelProxy;</label>
+          <label id = "progressAddressLabel">&torSettings.labelAddress;</label>
+          <label id = "progressPortLabel">&torSettings.labelPort;</label>
+          <label id = "progressUsernameLabel">&torSettings.labelUsername;</label>
+          <label id = "progressPasswordLabel">&torSettings.labelPassword;</label>
+        </vbox>
+        <vbox align="left">
+          <label id = "progressBridge" class = "heading"></label>
+          <label id = "progressProxy" class = "heading"></label>
+          <label id = "progressAddress" class = "heading"></label>
+          <label id = "progressPort" class = "heading"></label>
+          <label id = "progressUsername" class = "heading"></label>
+          <label id = "progressPassword" class = "heading"></label>
+        </vbox>
       </hbox>
     </vbox>
   </wizardpage> 
