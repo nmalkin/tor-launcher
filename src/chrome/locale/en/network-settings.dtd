@@ -44,8 +44,6 @@
 
 <!ENTITY torSettings.or "OR">
 
-<!ENTITY torSettings.bridgeSettingsPrompt "You can use a bridge to connect to Tor even when Tor is being blocked.">
-
 <!-- Other: -->
 
 <!ENTITY torsettings.startingTor "Waiting for Tor to start…">
@@ -69,9 +67,10 @@
 <!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
 <!ENTITY torsettings.firewall.checkbox "This computer goes through a firewall that only allows connections to certain ports">
 <!ENTITY torsettings.firewall.allowedPorts "Allowed Ports:">
+<!ENTITY torSettings.bridgeSettingsPrompt "Each type of bridge avoids censorship in a different way.">
 <!ENTITY torsettings.useBridges.checkbox "My Internet Service Provider (ISP) blocks connections to the Tor network">
 <!ENTITY torsettings.useBridges.default "Connect with provided bridges">
-<!ENTITY torsettings.useBridges.note "Each type of bridge uses a different method to avoid censorship.&#160; If one bridge does not work, try the next bridge on the list.">
+<!ENTITY torsettings.useBridges.note "If one bridge does not work, try the next bridge on the list.">
 <!ENTITY torsettings.useBridges.type "Transport type:">
 <!ENTITY torsettings.useBridges.custom "Enter custom bridges">
 <!ENTITY torsettings.useBridges.label "Enter one or more bridge relays (one per line).">

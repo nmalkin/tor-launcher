@@ -73,37 +73,6 @@
     </hbox>
   </groupbox>
 
-  <groupbox id="bridgeSpecificSettings">
-    <hbox align="end" pack="end">
-      <radiogroup id="bridgeTypeRadioGroup" flex="1" style="margin: 0px"
-                  oncommand="onBridgeTypeRadioChange()">
-        <radio id="bridgeRadioDefault"
-               label="&torsettings.useBridges.default;" selected="true" />
-        <hbox id="bridgeDefaultEntry" align="baseline" style="margin-top: -5px">
-          <label id="defaultBridgeTypeLabel"
-                 value="&torsettings.useBridges.type;"
-                 control="defaultBridgeType"/>
-          <menulist id="defaultBridgeType">
-            <menupopup id="defaultBridgeType_menuPopup" />
-          </menulist>
-          <spring/>
-        </hbox>
-        <spacer style="height: 0.5em" />
-
-        <radio align="start" id="bridgeRadioCustom"
-               label="&torsettings.useBridges.custom;" />
-      </radiogroup>
-      <button dlgtype="help" oncommand="onOpenHelp()" />
-    </hbox>
-    <vbox id="bridgeCustomEntry">
-      <label id="bridgeListLabel" style="margin-top:0px;"
-             value="&torsettings.useBridges.label;" control="bridgeList"/>
-      <textbox id="bridgeList" multiline="true" rows="3" wrap="off"
-               oninput="onCustomBridgesTextInput();"
-               placeholder="&torsettings.useBridges.placeholder;" />
-    </vbox>
-  </groupbox>
-
   <vbox id="bridgeHelpContent">
     <hbox align="middle"><label>&torsettings.bridgeHelpTitle;</label></hbox>
     <description>&torsettings.bridgeHelp1;</description>
