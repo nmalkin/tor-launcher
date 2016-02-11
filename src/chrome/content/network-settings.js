@@ -490,13 +490,17 @@ function onWizardSummary(){
     document.getElementById("summaryPort").textContent = getElemValue(kProxyPort, null);
     document.getElementById("summaryUsername").textContent = getElemValue(kProxyUsername);
     document.getElementById("summaryPassword").textContent = getElemValue(kProxyPassword);
+    document.getElementById("summaryAddress").setAttribute("hidden",false);
+    document.getElementById("summaryPort").setAttribute("hidden",false);
+    document.getElementById("summaryUsername").setAttribute("hidden",false);
+    document.getElementById("summaryPassword").setAttribute("hidden",false);
   }
   else{
     document.getElementById("summaryProxy").textContent = "None selected."
-    document.getElementById("summaryAddressLabel").textContent = ""
-    document.getElementById("summaryPortLabel").textContent = ""
-    document.getElementById("summaryUsernameLabel").textContent = ""
-    document.getElementById("summaryPasswordLabel").textContent = ""
+    document.getElementById("summaryAddressLabel").setAttribute("hidden",true);
+    document.getElementById("summaryPortLabel").setAttribute("hidden",true);
+    document.getElementById("summaryUsernameLabel").setAttribute("hidden",true);
+    document.getElementById("summaryPasswordLabel").setAttribute("hidden",true);
   }
 }
 
@@ -513,13 +517,17 @@ function onWizardProgress(){
     document.getElementById("progressPort").textContent = getElemValue(kProxyPort, null);
     document.getElementById("progressUsername").textContent = getElemValue(kProxyUsername);
     document.getElementById("progressPassword").textContent = getElemValue(kProxyPassword);
+    document.getElementById("progressAddress").setAttribute("hidden",false);
+    document.getElementById("progressPort").setAttribute("hidden",false);
+    document.getElementById("progressUsername").setAttribute("hidden",false);
+    document.getElementById("progressPassword").setAttribute("hidden",false);
   }
   else{
     document.getElementById("progressProxy").textContent = "None selected."
-    document.getElementById("progressAddressLabel").textContent = ""
-    document.getElementById("progressPortLabel").textContent = ""
-    document.getElementById("progressUsernameLabel").textContent = ""
-    document.getElementById("progressPasswordLabel").textContent = ""
+    document.getElementById("progressAddressLabel").setAttribute("hidden",true);
+    document.getElementById("progressPortLabel").setAttribute("hidden",true);
+    document.getElementById("progressUsernameLabel").setAttribute("hidden",true);
+    document.getElementById("progressPasswordLabel").setAttribute("hidden",true);
   }
 }
 

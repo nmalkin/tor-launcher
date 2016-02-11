@@ -173,10 +173,14 @@
         <vbox align="right">
           <label>&torSettings.labelBridge;</label>
           <label>&torSettings.labelProxy;</label>
-          <label id = "summaryAddressLabel">&torSettings.labelAddress;</label>
-          <label id = "summaryPortLabel">&torSettings.labelPort;</label>
-          <label id = "summaryUsernameLabel">&torSettings.labelUsername;</label>
-          <label id = "summaryPasswordLabel">&torSettings.labelPassword;</label>
+          <label id = "summaryAddressLabel" hidden = "true">
+            &torSettings.labelAddress;</label>
+          <label id = "summaryPortLabel" hidden = "true">
+            &torSettings.labelPort;</label>
+          <label id = "summaryUsernameLabel" hidden = "true">
+            &torSettings.labelUsername;</label>
+          <label id = "summaryPasswordLabel" hidden = "true">
+            &torSettings.labelPassword;</label>
         </vbox>
         <vbox align="left">
           <label id = "summaryBridge" class = "heading"></label>
@@ -206,10 +210,14 @@
         <vbox align="right">
           <label>&torSettings.labelBridge;</label>
           <label>&torSettings.labelProxy;</label>
-          <label id = "progressAddressLabel">&torSettings.labelAddress;</label>
-          <label id = "progressPortLabel">&torSettings.labelPort;</label>
-          <label id = "progressUsernameLabel">&torSettings.labelUsername;</label>
-          <label id = "progressPasswordLabel">&torSettings.labelPassword;</label>
+           <label id = "progressAddressLabel" hidden = "true">
+            &torSettings.labelAddress;</label>
+          <label id = "progressPortLabel" hidden = "true">
+            &torSettings.labelPort;</label>
+          <label id = "progressUsernameLabel" hidden = "true">
+            &torSettings.labelUsername;</label>
+          <label id = "progressPasswordLabel" hidden = "true">
+            &torSettings.labelPassword;</label>
         </vbox>
         <vbox align="left">
           <label id = "progressBridge" class = "heading"></label>
