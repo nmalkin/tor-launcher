@@ -47,29 +47,6 @@
   </wizardpage>
 
   <wizardpage pageid="bridges" next="proxy" onextra2="onCopyLog();"
-              onpageshow="showWizardNavButtons(true);"
-              onpageadvanced="return onWizardUseBridgesNext(this)">
-    <separator class="tall"></separator>
-    <hbox class="steps">
-      <image src="chrome://torlauncher/skin/step-bridge.png"></image>
-    </hbox>
-    <separator />
-    <hbox>
-      <vbox flex="1">
-        <label class="question">&torSettings.bridgeQuestion;</label>
-        <radiogroup id="useBridgesRadioGroup">
-          <radio id="bridgesRadioYes" label="&torSettings.yes;" />
-          <radio id="bridgesRadioNo" label="&torSettings.no;" selected="true" />
-        </radiogroup>
-        <description class="questionHelp">&torSettings.bridgeExplanation1;
-        </description>
-        <description class="questionHelp">&torSettings.bridgeExplanation2;
-        </description>
-      </vbox>
-    </hbox>
-  </wizardpage>
-
-  <wizardpage pageid="bridgeSettings" next="proxy" onextra2="onCopyLog();"
               onpageshow="onWizardBridgeSettingsShow();">
     <separator class="tall"></separator>
     <hbox class="steps">

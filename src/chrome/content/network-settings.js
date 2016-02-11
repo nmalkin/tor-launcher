@@ -436,18 +436,6 @@ function onWizardProxySettingsShow()
 }
 
 
-function onWizardUseBridgesNext(aWizPage)
-{
-  if (aWizPage)
-  {
-    var useBridges = getElemValue("bridgesRadioYes", false);
-    aWizPage.next = (useBridges) ? "bridgeSettings" : "proxy";
-  }
-
-  return true;
-}
-
-
 function onWizardBridgeSettingsShow()
 {
   var btn = document.documentElement.getButton("next");
