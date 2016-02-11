@@ -1740,11 +1740,11 @@ function setYesNoRadioValue(aGroupID, aIsYes)
 }
 
 
-// This assumes that first radio button is yes.
+// This assumes that second radio button is yes.
 function getYesNoRadioValue(aGroupID)
 {
   var elem = document.getElementById(aGroupID);
-  return (elem) ? (0 == elem.selectedIndex) : false;
+  return (elem) ? (1 == elem.selectedIndex) : false;
 }
 
 
