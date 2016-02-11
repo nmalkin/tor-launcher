@@ -98,7 +98,7 @@
     <separator />
     <label id = "proxyPrompt" class="instructions"></label>
     <radiogroup id="proxyRadioGroup"
-        oncommand="onWizardUseProxyRadioChange()">
+        oncommand="onProxyRadioChange()">
       <radio id="proxyRadioWithout" label="overwritten" />
       <radio id="proxyRadioWith" label="overwritten" />
     </radiogroup>

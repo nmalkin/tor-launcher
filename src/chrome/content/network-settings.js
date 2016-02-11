@@ -435,6 +435,16 @@ function onWizardProxySettingsShow()
   }
 }
 
+function onProxyRadioChange()
+{
+  var useProxy = getElemValue("proxyRadioWith", false);
+  if (useProxy){
+    document.getElementById("proxySpecificSettings").setAttribute("hidden", false);
+  }
+  else{//don't need to use proxy
+    document.getElementById("proxySpecificSettings").setAttribute("hidden", true);
+  }
+}
 
 function onWizardBridgeSettingsShow()
 {
