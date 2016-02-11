@@ -1371,7 +1371,7 @@ function getAndValidateProxySettings()
 function isProxyConfigured()
 {
   return (getWizard()) ? getYesNoRadioValue(kWizardProxyRadioGroup)
-                       : getElemValue(kUseProxyCheckbox, false);
+                       : getElemValue(proxyRadioWith, false);
 }
 
 
