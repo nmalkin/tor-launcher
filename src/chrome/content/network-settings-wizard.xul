@@ -54,7 +54,7 @@
       <image src="chrome://torlauncher/skin/step-proxy.png"></image>
     </hbox>
     <separator />
-    <label id = "proxyPrompt" class="instructions"></label>
+    <label id = "proxyPrompt" class="heading"></label>
     <radiogroup id="proxyRadioGroup"
         oncommand="onProxyRadioChange()">
       <radio id="proxyRadioWithout" label="overwritten" />
