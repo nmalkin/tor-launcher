@@ -46,7 +46,7 @@
     </vbox>
   </wizardpage>
 
-  <wizardpage pageid="proxy" onextra2="onCopyLog();"
+  <wizardpage pageid="proxy" next="bridges" onextra2="onCopyLog();"
               onpageshow="onWizardProxySettingsShow()"
               onpageadvanced="return (getAndValidateProxySettings() != null)">
     <separator class="tall"></separator>
@@ -118,7 +118,7 @@
     </vbox>
   </wizardpage>
 
-  <wizardpage pageid="bridges" next="proxy" onextra2="onCopyLog();"
+  <wizardpage pageid="bridges" next="summary" onextra2="onCopyLog();"
               onpageshow="onWizardBridgeSettingsShow();">
     <separator class="tall"></separator>
     <hbox class="steps">
