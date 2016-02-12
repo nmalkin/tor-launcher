@@ -448,15 +448,6 @@ function onProxyRadioChange()
   }
 }
 
-function onWizardBridgeSettingsShow()
-{
-  var btn = document.documentElement.getButton("next");
-  btn.className="green_button";
-  if (btn)
-    btn.focus();
-}
-
-
 function onCustomBridgesTextInput()
 {
   var customBridges = document.getElementById(kCustomBridgesRadio);

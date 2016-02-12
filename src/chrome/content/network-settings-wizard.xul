@@ -118,8 +118,7 @@
     </vbox>
   </wizardpage>
 
-  <wizardpage pageid="bridges" next="summary" onextra2="onCopyLog();"
-              onpageshow="onWizardBridgeSettingsShow();">
+  <wizardpage pageid="bridges" next="summary" onextra2="onCopyLog();">
     <separator class="tall"></separator>
     <hbox class="steps">
       <image src="chrome://torlauncher/skin/step-bridge.png"></image>
