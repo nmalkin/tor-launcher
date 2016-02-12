@@ -479,7 +479,6 @@ function onBridgeTypeRadioChange()
 }
 
 function onWizardSummary(){
-  //make this last page somehow
   if (isBridgeConfigured()){
     document.getElementById("summaryBridge").textContent = TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null);
   } 
