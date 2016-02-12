@@ -413,8 +413,7 @@ function removeSettingsAndConnect()
 
 function onWizardConfigure()
 {
-  //getWizard.advance();
-  getWizard().advance("proxy");
+  getWizard().advance();
 }
 
 function onWizardProxySettingsShow()
