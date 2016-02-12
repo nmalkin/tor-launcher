@@ -54,6 +54,7 @@
       <image src="chrome://torlauncher/skin/step-proxy.png"></image>
     </hbox>
     <separator />
+    <vbox align="center">
     <label id = "proxyPrompt" class="heading"></label>
     <radiogroup id="proxyRadioGroup"
         oncommand="onProxyRadioChange()">
@@ -114,6 +115,7 @@
         </rows>
       </grid>
     </hbox>
+    </vbox>
   </wizardpage>
 
   <wizardpage pageid="bridges" next="proxy" onextra2="onCopyLog();"
