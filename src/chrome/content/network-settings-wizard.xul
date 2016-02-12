@@ -34,7 +34,7 @@
     <vbox class="firstResponses" align="center">
       <image src="chrome://torlauncher/skin/tbb-logo.png" />
       <separator />
-      <button label="&torSettings.connect;" id="connect_button" oncommand="useSettings();"/>
+      <button label="&torSettings.connect;" id="connect_button" class="highlighted" oncommand="useSettings();"/>
       <separator class="short"/>
       <label>&torSettings.connectPrompt;</label>
       <separator class="short"/>
