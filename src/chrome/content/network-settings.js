@@ -433,6 +433,8 @@ function onWizardProxySettingsShow()
     document.getElementById("proxyRadioGroup").selectedItem = document.getElementById("proxyRadioWithout");
     document.getElementById("proxySpecificSettings").setAttribute("hidden", true);
   }
+
+  showWizardNavButtons(true);
 }
 
 function onProxyRadioChange()
