@@ -1595,8 +1595,15 @@ function getAndValidateBridgeSettings()
 
 function isBridgeConfigured()
 {
-  return (getWizard()) ? getElemValue("bridgesRadioYes", false)
-                       : getElemValue(kUseBridgesCheckbox, false);
+  if (getWizard())
+  {
+    return getElemValue("bridgeRadioDefault", false) ||
+      getElemValue("bridgeRadioCustom", false);
+  }
+  else
+  {
+    return getElemValue(kUseBridgesCheckbox, false);
+  }
 }
 
 
