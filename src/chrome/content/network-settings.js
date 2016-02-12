@@ -487,14 +487,14 @@ function onWizardSummary(){
   }
   if (isProxyConfigured()){
     document.getElementById("summaryProxy").textContent = getElemValue(kProxyTypeMenulist, null)
+    document.getElementById("summaryAddressLabel").setAttribute("hidden",false);
     document.getElementById("summaryAddress").textContent = getElemValue(kProxyAddr, null);
+    document.getElementById("summaryPortLabel").setAttribute("hidden",false);
     document.getElementById("summaryPort").textContent = getElemValue(kProxyPort, null);
+    document.getElementById("summaryUsernameLabel").setAttribute("hidden",false);
     document.getElementById("summaryUsername").textContent = getElemValue(kProxyUsername);
+    document.getElementById("summaryPasswordLabel").setAttribute("hidden",false);
     document.getElementById("summaryPassword").textContent = getElemValue(kProxyPassword);
-    document.getElementById("summaryAddress").setAttribute("hidden",false);
-    document.getElementById("summaryPort").setAttribute("hidden",false);
-    document.getElementById("summaryUsername").setAttribute("hidden",false);
-    document.getElementById("summaryPassword").setAttribute("hidden",false);
   }
   else{
     document.getElementById("summaryProxy").textContent = "None selected."
@@ -514,14 +514,14 @@ function onWizardProgress(){
   }
   if (isProxyConfigured()){
     document.getElementById("progressProxy").textContent = getElemValue(kProxyTypeMenulist, null)
+    document.getElementById("progressAddressLabel").setAttribute("hidden",false);
     document.getElementById("progressAddress").textContent = getElemValue(kProxyAddr, null);
+    document.getElementById("progressPortLabel").setAttribute("hidden",false);
     document.getElementById("progressPort").textContent = getElemValue(kProxyPort, null);
+    document.getElementById("progressUsernameLabel").setAttribute("hidden",false);
     document.getElementById("progressUsername").textContent = getElemValue(kProxyUsername);
+    document.getElementById("progressPasswordLabel").setAttribute("hidden",false);
     document.getElementById("progressPassword").textContent = getElemValue(kProxyPassword);
-    document.getElementById("progressAddress").setAttribute("hidden",false);
-    document.getElementById("progressPort").setAttribute("hidden",false);
-    document.getElementById("progressUsername").setAttribute("hidden",false);
-    document.getElementById("progressPassword").setAttribute("hidden",false);
   }
   else{
     document.getElementById("progressProxy").textContent = "None selected."
