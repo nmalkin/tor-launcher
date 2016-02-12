@@ -496,12 +496,24 @@ function onWizardSummary(){
     if (username || password)
     {
       document.getElementById("summaryUsernameLabel").setAttribute("hidden",false);
-      document.getElementById("summaryUsername").textContent = getElemValue(kProxyUsername);
       document.getElementById("summaryPasswordLabel").setAttribute("hidden",false);
-      document.getElementById("summaryPassword").textContent = getElemValue(kProxyPassword);
+      if (username)
+      {
+        document.getElementById("summaryUsername").textContent = getElemValue(kProxyUsername);
+      }
+      else {
+        document.getElementById("summaryUsername").textContent = "None entered."
+      }
+      if (password)
+      {
+        document.getElementById("summaryPassword").textContent = getElemValue(kProxyPassword);
+      }
+      else {
+        document.getElementById("summaryPassword").textContent = "None entered."
+      }
     }
   }
-  else{
+  else {
     document.getElementById("summaryProxy").textContent = "None selected."
     document.getElementById("summaryAddressLabel").setAttribute("hidden",true);
     document.getElementById("summaryPortLabel").setAttribute("hidden",true);
