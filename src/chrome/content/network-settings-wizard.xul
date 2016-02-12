@@ -129,7 +129,7 @@
       <separator class="tall"/>
       <hbox align="end" pack="end">
       <radiogroup id="bridgeTypeRadioGroup" flex="1" style="margin: 0px"
-                  oncommand="onBridgeTypeRadioChange()">
+                  oncommand="onBridgeTypeRadioChange(); onBridgeRadioChange()">
         <radio id="bridgeRadioDefault"
                label="&torsettings.useBridges.default;" selected="true" />
         <hbox id="bridgeDefaultEntry" align="baseline" style="margin-top: -5px">
@@ -148,7 +148,7 @@
       </radiogroup>
       <button dlgtype="help" oncommand="onOpenHelp()" />
       </hbox>
-      <vbox id="bridgeCustomEntry">
+      <vbox id="bridgeCustomEntry" hidden = "true">
       <label id="bridgeListLabel" style="margin-top:0px;"
              value="&torsettings.useBridges.label;" control="bridgeList"/>
       <textbox id="bridgeList" multiline="true" rows="3" wrap="off"

@@ -464,6 +464,16 @@ function onCustomBridgesTextInput()
   onBridgeTypeRadioChange();
 }
 
+function onBridgeRadioChange()
+{
+  var useCustom = getElemValue("bridgeRadioCustom", false);
+  if (useCustom){
+    document.getElementById("bridgeCustomEntry").setAttribute("hidden", false);
+  }
+  else{//don't need to use proxy
+    document.getElementById("bridgeCustomEntry").setAttribute("hidden", true);
+  }
+}
 
 function onBridgeTypeRadioChange()
 {
@@ -478,7 +488,7 @@ function onBridgeTypeRadioChange()
 
 function onWizardSummary(){
   //make this last page somehow
-  if (TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null)){
+  if (isBridgeConfigured()){
     document.getElementById("summaryBridge").textContent = TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null);
   } 
   else {
@@ -505,7 +515,7 @@ function onWizardSummary(){
 }
 
 function onWizardProgress(){
-  if (TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null)){
+  if (isBridgeConfigured()){
     document.getElementById("progressBridge").textContent = TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null);
   } 
   else {
