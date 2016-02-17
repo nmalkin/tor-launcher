@@ -1513,8 +1513,12 @@ function initDefaultBridgeTypeMenu()
   var recommendedType = TorLauncherUtil.getCharPref(
                                       kPrefDefaultBridgeRecommendedType, null);
   var selectedType = TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null);
-  if (!selectedType)
+  if (selectedType === null)
     selectedType = recommendedType;
+
+  var mi = menu.appendItem("No bridge (default)", "");
+  if ("" == selectedType)
+    menu.selectedItem = mi;
 
   for (var i=0; i < typeArray.length; i++)
   {
@@ -1609,7 +1613,12 @@ function isBridgeConfigured()
 {
   if (getWizard())
   {
-    return getElemValue("bridgeRadioDefault", false) ||
+    // A bridge is configured if the user selected the "use a default bridge"
+    // radio button (bridgeRadioDefault) but did not select "No bridge" from the
+    // list ("No bridge" has a false value); or if the user selected the "use a
+    // custom bridge" radio button (bridgeRadioCustom).
+    return (getElemValue("bridgeRadioDefault", false) &&
+      getElemValue(kDefaultBridgeTypeMenuList, null)) ||
       getElemValue("bridgeRadioCustom", false);
   }
   else
