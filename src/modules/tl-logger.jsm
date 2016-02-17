@@ -29,6 +29,12 @@ XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherUtil",
 Cu.import("resource://gre/modules/osfile.jsm");
 var kInstFile = OS.File.open("inst.log", {write: true, append: true});
 
+var array = new Uint32Array(8);
+var inst_run_id = "";
+for (var i = 0; i < array.length; i++) {
+  inst_run_id += ("0" + Math.floor(Math.random() * 256).toString(16)).slice(-2);
+}
+
 let TorLauncherLogger = // Public
 {
   formatLog: function(str, level)
@@ -102,7 +108,7 @@ let TorLauncherLogger = // Public
   INST: function(obj)
   {
     var d = new Date();
-    msg = "INST " + d.toISOString() + " " + JSON.stringify(obj) + "\n";
+    msg = "INST " + inst_run_id + " " + d.toISOString() + " " + JSON.stringify(obj) + "\n";
     dump(msg);
     let array = (new TextEncoder()).encode(msg);
     kInstFile.then(f => f.write(array));
