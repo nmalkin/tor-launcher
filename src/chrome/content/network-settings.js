@@ -259,10 +259,8 @@ function initDialog()
 
   // try
   // {
-    gObsService.addObserver(gObserverProgress, kTorProcessExitedTopic, false);
     gObsService.addObserver(gObserverProgress, kBootstrapStatusTopic, false);
     gObsService.addObserver(gObserverProgress, kTorBootstrapErrorTopic, false);
-    gObsService.addObserver(gObserverProgress, kTorLogHasWarnOrErrTopic, false);
   // }
   // catch (e) {}
 
@@ -695,10 +693,8 @@ function cleanup()
 {
   if (gObsService)
   {
-    gObsService.removeObserver(gObserverProgress, kTorProcessExitedTopic);
     gObsService.removeObserver(gObserverProgress, kBootstrapStatusTopic);
     gObsService.removeObserver(gObserverProgress, kTorBootstrapErrorTopic);
-    gObsService.removeObserver(gObserverProgress, kTorLogHasWarnOrErrTopic);
   }
 }
 
@@ -707,18 +703,9 @@ var gObserverProgress = {
   observe: function(aSubject, aTopic, aParam)
   {
     TorLauncherLogger.log(5, "> gObserverProgress.observe("+aSubject+", "+aTopic+", ...)");
-    if ((kTorProcessExitedTopic == aTopic) ||
-        (kTorBootstrapErrorTopic == aTopic))
+    if (kTorBootstrapErrorTopic == aTopic)
     {
-      // In these cases, an error alert will be displayed elsewhere so it is
-      // best to close this window.
-      // TODO: provide a way to access tor log e.g., leave this dialog open
-      //       and display the open settings button or provide a way to do
-      //       that from our error alerts.
-      if (kTorBootstrapErrorTopic == aTopic)
-        stopTorBootstrap();
-      cleanup();
-      window.close();
+      stopTorBootstrap();
     }
     else if (kBootstrapStatusTopic == aTopic)
     {
@@ -755,14 +742,6 @@ var gObserverProgress = {
       var desc = document.getElementById("progressDesc");
       if (labelText && desc)
         desc.textContent = labelText;
-    }
-    else if (kTorLogHasWarnOrErrTopic == aTopic)
-    {
-      var extra2Btn = document.documentElement.getButton("extra2");
-      var clz = extra2Btn.getAttribute("class");
-      extra2Btn.setAttribute("class", clz ? clz + " torWarning" : "torWarning");
-
-      // TODO: show error / warning message in this dialog?
     }
     TorLauncherLogger.log(5, "< gObserverProgress.observe");
   },
