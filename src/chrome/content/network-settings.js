@@ -189,8 +189,16 @@ function initDialog()
     // Use "Connect" as the finish button label (on the last wizard page)..
     var finishBtn = document.documentElement.getButton("finish");
     finishBtn.className = "highlighted";
-    if (finishBtn)
+    if (finishBtn) {
       finishBtn.label = TorLauncherUtil.getLocalizedString("connect");
+      finishBtn.onclick = function(event) {
+        TorLauncherLogger.log(2, "finishBtn onclick");
+        // Call preventDefault to prevent the wizard from actually finishing,
+        // then advance to the inlineprogress page.
+        event.preventDefault();
+        getWizard().advance("inlineprogress");
+      };
+    }
 
     // Add label and access key to Help button.
     var helpBtn = document.documentElement.getButton("help");

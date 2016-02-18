@@ -159,7 +159,7 @@
     </vbox>
   </wizardpage>
 
-  <wizardpage pageid="summary" next="inlineprogress" onpageshow="onWizardSummary();"
+  <wizardpage pageid="summary" onpageshow="onWizardSummary();"
     onpageadvanced="return applySettings(false);">
     <separator class="tall"></separator>
     <hbox class="steps">
