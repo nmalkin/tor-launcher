@@ -659,6 +659,16 @@ var gObserver = {
   }
 };
 
+function closeThisWindow(aBootstrapDidComplete)
+{
+  cleanup();
+
+  if (gOpenerCallbackFunc)
+    gOpenerCallbackFunc(aBootstrapDidComplete);
+
+  window.close();
+}
+
 function stopTorBootstrap()
 {
   // Tell tor to disable use of the network; this should stop the bootstrap
