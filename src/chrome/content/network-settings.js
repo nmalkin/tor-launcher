@@ -27,6 +27,7 @@ const kSupportAddr = "help@rt.torproject.org";
 
 const kTorProcessReadyTopic = "TorProcessIsReady";
 const kTorProcessExitedTopic = "TorProcessExited";
+const kBootstrapStatusTopic = "TorBootstrapStatus";
 const kTorProcessDidNotStartTopic = "TorProcessDidNotStart";
 const kTorOpenProgressTopic = "TorOpenProgressDialog";
 const kTorBootstrapErrorTopic = "TorBootstrapError";
@@ -70,6 +71,7 @@ var gIsInitialBootstrap = false;
 var gIsBootstrapComplete = false;
 var gRestoreAfterHelpPanelID = null;
 var gActiveTopics = [];  // Topics for which an observer is currently installed.
+var gOpenerCallbackFunc; // Set when opened from network settings.
 
 function initDialogCommon(aHasQuitButton)
 {
@@ -239,6 +241,61 @@ function initDialog()
   }
 
   resizeDialogToFitContent();
+
+
+  /*
+  try
+  {
+    var processSvc = Cc["@torproject.org/torlauncher-process-service;1"]
+                .getService(Ci.nsISupports).wrappedJSObject;
+    if (processSvc.TorIsBootstrapDone || processSvc.TorBootstrapErrorOccurred)
+    {
+      closeThisWindow(processSvc.TorIsBootstrapDone);
+      return;
+    }
+  }
+  catch (e) { dump(e + "\n"); }
+  */
+
+  // try
+  // {
+    gObsService.addObserver(gObserverProgress, kTorProcessExitedTopic, false);
+    gObsService.addObserver(gObserverProgress, kBootstrapStatusTopic, false);
+    gObsService.addObserver(gObserverProgress, kTorBootstrapErrorTopic, false);
+    gObsService.addObserver(gObserverProgress, kTorLogHasWarnOrErrTopic, false);
+  // }
+  // catch (e) {}
+
+  var isBrowserStartup = false;
+  if (window.arguments)
+  {
+    isBrowserStartup = window.arguments[0];
+
+    if (window.arguments.length > 1)
+      gOpenerCallbackFunc = window.arguments[1];
+  }
+
+  if (gOpenerCallbackFunc)
+  {
+    // Dialog was opened from network settings: hide Open Settings button.
+    var extraBtn = document.documentElement.getButton("extra2");
+    extraBtn.setAttribute("hidden", true);
+  }
+  else
+  {
+    // Dialog was not opened from network settings: change Cancel to Quit.
+    var cancelBtn = document.documentElement.getButton("cancel");
+    var quitKey = (TorLauncherUtil.isWindows) ? "quit_win" : "quit";
+    cancelBtn.label = TorLauncherUtil.getLocalizedString(quitKey);
+  }
+
+  // If opened during browser startup, display the "please wait" message.
+  if (isBrowserStartup)
+  {
+    var pleaseWait = document.getElementById("progressPleaseWait");
+    if (pleaseWait)
+      pleaseWait.removeAttribute("hidden");
+  }
 
   TorLauncherLogger.log(2, "initDialog done");
 }
@@ -565,6 +622,7 @@ function showWizardNavButtons(aShowBtns)
 var gObserver = {
   observe: function(aSubject, aTopic, aData)
   {
+    TorLauncherLogger.log(5, "> gObserver.observe("+aSubject+", "+aTopic+", ...)");
     if ((kTorBootstrapErrorTopic == aTopic) ||
          (kTorLogHasWarnOrErrTopic == aTopic))
     {
@@ -597,7 +655,107 @@ var gObserver = {
     {
       openProgressDialog();
     }
+    TorLauncherLogger.log(5, "< gObserver.observe");
   }
+};
+
+function stopTorBootstrap()
+{
+  // Tell tor to disable use of the network; this should stop the bootstrap
+  // process.
+  const kErrorPrefix = "Setting DisableNetwork=1 failed: ";
+  try
+  {
+    var svc = Cc["@torproject.org/torlauncher-protocol-service;1"]
+                 .getService(Ci.nsISupports);
+    svc = svc.wrappedJSObject;
+    var settings = {};
+    settings["DisableNetwork"] = true;
+    var errObj = {};
+    if (!svc.TorSetConfWithReply(settings, errObj))
+      TorLauncherLogger.log(5, kErrorPrefix + errObj.details);
+  }
+  catch(e)
+  {
+    TorLauncherLogger.log(5, kErrorPrefix + e);
+  }
+}
+
+function cleanup()
+{
+  if (gObsService)
+  {
+    gObsService.removeObserver(gObserverProgress, kTorProcessExitedTopic);
+    gObsService.removeObserver(gObserverProgress, kBootstrapStatusTopic);
+    gObsService.removeObserver(gObserverProgress, kTorBootstrapErrorTopic);
+    gObsService.removeObserver(gObserverProgress, kTorLogHasWarnOrErrTopic);
+  }
+}
+
+var gObserverProgress = {
+  // nsIObserver implementation.
+  observe: function(aSubject, aTopic, aParam)
+  {
+    TorLauncherLogger.log(5, "> gObserverProgress.observe("+aSubject+", "+aTopic+", ...)");
+    if ((kTorProcessExitedTopic == aTopic) ||
+        (kTorBootstrapErrorTopic == aTopic))
+    {
+      // In these cases, an error alert will be displayed elsewhere so it is
+      // best to close this window.
+      // TODO: provide a way to access tor log e.g., leave this dialog open
+      //       and display the open settings button or provide a way to do
+      //       that from our error alerts.
+      if (kTorBootstrapErrorTopic == aTopic)
+        stopTorBootstrap();
+      cleanup();
+      window.close();
+    }
+    else if (kBootstrapStatusTopic == aTopic)
+    {
+      var statusObj = aSubject.wrappedJSObject;
+      var labelText =
+                TorLauncherUtil.getLocalizedBootstrapStatus(statusObj, "TAG");
+      var percentComplete = (statusObj.PROGRESS) ? statusObj.PROGRESS : 0;
+
+      var meter = document.getElementById("progressMeter");
+      if (meter)
+        meter.value = percentComplete;
+
+      var bootstrapDidComplete = (percentComplete >= 100);
+      if (percentComplete >= 100)
+      {
+        // To ensure that 100% progress is displayed, wait a short while
+        // before closing this window.
+        window.setTimeout(function() { closeThisWindow(true); }, 250);
+      }
+      else if (statusObj._errorOccurred)
+      {
+        var s = TorLauncherUtil.getLocalizedBootstrapStatus(statusObj, "REASON");
+        if (s)
+          labelText = s;
+
+        if (meter)
+          meter.setAttribute("hidden", true);
+
+        var pleaseWait = document.getElementById("progressPleaseWait");
+        if (pleaseWait)
+          pleaseWait.setAttribute("hidden", true);
+      }
+
+      var desc = document.getElementById("progressDesc");
+      if (labelText && desc)
+        desc.textContent = labelText;
+    }
+    else if (kTorLogHasWarnOrErrTopic == aTopic)
+    {
+      var extra2Btn = document.documentElement.getButton("extra2");
+      var clz = extra2Btn.getAttribute("class");
+      extra2Btn.setAttribute("class", clz ? clz + " torWarning" : "torWarning");
+
+      // TODO: show error / warning message in this dialog?
+    }
+    TorLauncherLogger.log(5, "< gObserverProgress.observe");
+  },
 };
 
 
@@ -1261,7 +1419,7 @@ function applySettings(aUseDefaults)
 
   TorLauncherLogger.log(2, "applySettings done");
 
-  return false;
+  return didSucceed;
 }
 
 
@@ -1278,6 +1436,7 @@ function useSettings()
   if (!gIsBootstrapComplete)
     openProgressDialog();
 
+/*
   let wizardElem = getWizard();
   if (gIsBootstrapComplete)
   {
@@ -1295,15 +1454,18 @@ function useSettings()
       showErrorMessage(false, msg, true);
     }
   }
+*/
 }
 
 
 function openProgressDialog()
 {
+/*
   var chromeURL = "chrome://torlauncher/content/progress.xul";
   var features = "chrome,dialog=yes,modal=yes,dependent=yes";
   window.openDialog(chromeURL, "_blank", features,
                     gIsInitialBootstrap, onProgressDialogClose);
+*/
 }
 
 

@@ -19,7 +19,6 @@
         windowtype="TorLauncher:NetworkSettings"
         persist="screenX screenY"
         buttonlabelextra2="&torsettings.copyLog;"
-        onwizardfinish="return applySettings(false);"
         onwizardcancel="return onCancel();"
         onload="initDialog();"
         onunload="deinitDialog();">
@@ -160,7 +159,8 @@
     </vbox>
   </wizardpage>
 
-  <wizardpage pageid="summary" onpageshow="onWizardSummary();">
+  <wizardpage pageid="summary" next="inlineprogress" onpageshow="onWizardSummary();"
+    onpageadvanced="return applySettings(false);">
     <separator class="tall"></separator>
     <hbox class="steps">
       <image src="chrome://torlauncher/skin/step-summary.png"></image>
@@ -205,6 +205,7 @@
       <separator />
       <image src="chrome://torlauncher/skin/progress-bar.png" minwidth="100%"
       maxheight="60px"></image>
+      <progressmeter id="progressMeter" mode="determined" value="0" />
       <separator class="tall"></separator>
       <label class="heading">&torSettings.progressPrompt3;</label>
       <separator />

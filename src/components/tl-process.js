@@ -634,12 +634,14 @@ TorProcessService.prototype =
 
   _openProgressDialog: function()
   {
+  /*
     var chromeURL = "chrome://torlauncher/content/progress.xul";
     var wwSvc = Cc["@mozilla.org/embedcomp/window-watcher;1"]
                   .getService(Ci.nsIWindowWatcher);
     var winFeatures = "chrome,dialog=yes,modal,all";
     var argsArray = this._createOpenWindowArgsArray(true);
     wwSvc.openWindow(null, chromeURL, "_blank", winFeatures, argsArray);
+  */
   },
 
   _createOpenWindowArgsArray: function(aArg1, aArg2)
