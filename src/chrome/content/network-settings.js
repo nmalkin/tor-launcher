@@ -586,6 +586,12 @@ function onWizardSummary(){
 }
 
 function onWizardProgress(){
+  showOrHideButton("back", false, false);
+  showOrHideButton("cancel", true, false);
+  showOrHideButton("finish", false, false);
+  showOrHideButton("next", false, false);
+  showOrHideButton("extra2", false, false);
+  showOrHideButton("extra1", false, false);
   if (isBridgeConfigured()){
     document.getElementById("progressBridge").textContent = TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null);
   } 
