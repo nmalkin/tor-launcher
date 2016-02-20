@@ -542,7 +542,10 @@ function onBridgeTypeRadioChange()
 }
 
 function onWizardSummary(){
-  if (isBridgeConfigured()){
+  if (getElemValue("bridgeRadioCustom", false)){
+    document.getElementById("summaryBridge").textContent = "Custom Bridge(s)."
+  } 
+  else if (isBridgeConfigured()){
     document.getElementById("summaryBridge").textContent = TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null);
   } 
   else {
@@ -592,9 +595,13 @@ function onWizardProgress(){
   showOrHideButton("next", false, false);
   showOrHideButton("extra2", false, false);
   showOrHideButton("extra1", false, false);
-  if (isBridgeConfigured()){
-    document.getElementById("progressBridge").textContent = TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null);
+
+  if (getElemValue("bridgeRadioCustom", false)){
+    document.getElementById("progressBridge").textContent = "Custom Bridge(s)."
   } 
+  else if (isBridgeConfigured()) {
+    document.getElementById("progressBridge").textContent = TorLauncherUtil.getCharPref(kPrefDefaultBridgeType, null);
+  }
   else {
     document.getElementById("progressBridge").textContent = "None selected."
   }
