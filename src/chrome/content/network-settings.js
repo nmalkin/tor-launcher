@@ -1400,12 +1400,14 @@ function initBridgeSettings()
       radioGroup.setAttribute("hidden", true);
   }
 
-  var radioID = (useDefault) ? "bridgeRadioDefault" : "bridgeRadioCustom";
+  //always initializes bridge selection to no bridge.
+  var radioID = "bridgeRadioNone";
+  //var radioID = (useDefault) ? "bridgeRadioDefault" : "bridgeRadioCustom";
+  
   var radio = document.getElementById(radioID);
   if (radio)
     radio.control.selectedItem = radio;
   onBridgeTypeRadioChange();
-
   return true;
 }
 
