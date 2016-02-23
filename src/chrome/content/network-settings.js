@@ -1434,7 +1434,8 @@ function applySettings(aUseDefaults)
 
 
 function useSettings()
-{
+{ //what happens when you click connect on the first page. 
+
   var settings = {};
   settings[kTorConfKeyDisableNetwork] = false;
   setConfAndReportErrors(settings, null);
@@ -1445,6 +1446,9 @@ function useSettings()
   gIsBootstrapComplete = gTorProcessService.TorIsBootstrapDone;
   if (!gIsBootstrapComplete)
     openProgressDialog();
+
+  //show progress page
+  getWizard().advance("inlineprogress");
 
 /*
   let wizardElem = getWizard();
