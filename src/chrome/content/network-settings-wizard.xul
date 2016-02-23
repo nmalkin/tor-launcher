@@ -205,7 +205,7 @@
       <separator />
       <label>&torSettings.progressPrompt2; </label>
       <separator />
-      <image src="chrome://torlauncher/skin/progress-bar.png" minwidth="100%"
+      <image id="progressbar" src="chrome://torlauncher/skin/nobridge-noproxy-good1.png" maxwidth="100%"
       maxheight="60px"></image>
       <progressmeter id="progressMeter" mode="determined" value="0" />
       <separator class="tall"></separator>

@@ -589,6 +589,7 @@ function onWizardSummary(){
 }
 
 function onWizardProgress(){
+  //disable extra buttons on progress screen.
   showOrHideButton("back", false, false);
   showOrHideButton("cancel", true, false);
   showOrHideButton("finish", false, false);
@@ -596,6 +597,21 @@ function onWizardProgress(){
   showOrHideButton("extra2", false, false);
   showOrHideButton("extra1", false, false);
 
+  //initializing the progress bar picture. 
+  if (!isBridgeConfigured() && !isProxyConfigured()) {//nobridge noproxy
+    document.getElementById("progressbar").src = "chrome://torlauncher/skin/nobridge-noproxy-good1.png";
+  }
+  else if (isBridgeConfigured() && !isProxyConfigured()) {//bridge noproxy
+    document.getElementById("progressbar").src = "chrome://torlauncher/skin/bridge-noproxy-good1.png";
+  }
+  else if (!isBridgeConfigured() && isProxyConfigured()) {//nobridge proxy
+    document.getElementById("progressbar").src = "chrome://torlauncher/skin/nobridge-proxy-good1.png";
+  }
+  else if (isBridgeConfigured() && isProxyConfigured()) {//bridge proxy
+    document.getElementById("progressbar").src = "chrome://torlauncher/skin/bridge-proxy-good1.png";
+  }
+
+  //filling in the connection summary. 
   if (getElemValue("bridgeRadioCustom", false)){
     document.getElementById("progressBridge").textContent = "Custom Bridge(s)."
   } 
