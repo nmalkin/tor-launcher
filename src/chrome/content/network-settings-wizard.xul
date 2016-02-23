@@ -131,8 +131,9 @@
       <hbox align="end" pack="end">
       <radiogroup id="bridgeTypeRadioGroup" flex="1" style="margin: 0px"
                   oncommand="onBridgeTypeRadioChange(); onBridgeRadioChange()">
+        <radio id="bridgeRadioNone" label="No bridge" selected="true"/>
         <radio id="bridgeRadioDefault"
-               label="&torsettings.useBridges.default;" selected="true" />
+               label="&torsettings.useBridges.default;" />
         <hbox id="bridgeDefaultEntry" align="baseline" style="margin-top: -5px">
           <label id="defaultBridgeTypeLabel"
                  value="&torsettings.useBridges.type;"
