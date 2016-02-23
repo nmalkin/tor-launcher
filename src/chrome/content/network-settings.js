@@ -1295,7 +1295,6 @@ function initProxySettings()
   }
 
   var haveProxy = (proxyType != undefined);
-  setYesNoRadioValue(kWizardProxyRadioGroup, haveProxy);
   setElemValue(kUseProxyCheckbox, haveProxy);
   setElemValue(kProxyTypeMenulist, proxyType);
   onProxyTypeChange();
