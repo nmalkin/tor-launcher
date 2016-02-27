@@ -588,6 +588,74 @@ function onWizardSummary(){
   }
 }
 
+function updateProgressImage(percent){
+  var configurationSettings = "null"; 
+  var number 
+  var updatePoint1 = 5;
+  var updatePoint2 = 10; 
+  var updatePoint3 = 100; 
+
+  if (!isBridgeConfigured() && !isProxyConfigured()) {//nobridge noproxy
+    configurationSettings = "nobridge-noproxy"; 
+    if (percent <= updatePoint1){ 
+      number = 1; 
+    }
+    else if (percent < updatePoint3){
+      number = 2;
+    }
+    else {
+      number = 3;
+    }
+  }
+  else if (isBridgeConfigured() && !isProxyConfigured()) {//bridge noproxy
+    configurationSettings = "bridge-noproxy"; 
+    if (percent <= updatePoint1){
+      number = 1; 
+    }
+    else if (percent < updatePoint2){
+      number = 2;
+    }
+    else if (percent < updatePoint3){
+      number = 3;
+    }
+    else {
+      number = 4;
+    }
+  }
+  else if (!isBridgeConfigured() && isProxyConfigured()) {//nobridge proxy
+    configurationSettings = "nobridge-proxy"; 
+    if (percent <= updatePoint1){
+      number = 1; 
+    }
+    else if (percent < updatePoint2){
+      number = 2;
+    }
+    else if (percent < updatePoint3){
+      number = 3;
+    }
+    else {
+      number = 4;
+    }
+  }
+  else {//bridge proxy
+    configurationSettings = "bridge-proxy"; 
+    if (percent <= updatePoint1){ 
+      number = 1; 
+    }
+    else if (percent < updatePoint2){
+      number = 2;
+    }
+    else if (percent < updatePoint3){
+      number = 3;
+    }
+    else {
+      number = 4;
+    }
+  }
+
+  document.getElementById("progressbar").src = "chrome://torlauncher/skin/"+configurationSettings+"-good"+number+".png";
+}
+
 function onWizardProgress(){
   //disable extra buttons on progress screen.
   showOrHideButton("back", false, false);
@@ -751,9 +819,11 @@ var gObserverProgress = {
                 TorLauncherUtil.getLocalizedBootstrapStatus(statusObj, "TAG");
       var percentComplete = (statusObj.PROGRESS) ? statusObj.PROGRESS : 0;
 
-      var meter = document.getElementById("progressMeter");
-      if (meter)
-        meter.value = percentComplete;
+      updateProgressImage(percentComplete);
+
+      //var meter = document.getElementById("progressMeter");
+      //if (meter)
+      //  meter.value = percentComplete;
 
       var bootstrapDidComplete = (percentComplete >= 100);
       if (percentComplete >= 100)
