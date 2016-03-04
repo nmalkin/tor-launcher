@@ -197,7 +197,7 @@ TorProcessService.prototype =
         {
           var s = TorLauncherUtil.getLocalizedString("tor_controlconn_failed");
           this.mObsSvc.notifyObservers(null, "TorProcessDidNotStart", s);
-          //TorLauncherUtil.showAlert(null, s);
+          //TorLauncherUtil.showAlert(null, s,"tor_controlconn_failed");
           TorLauncherLogger.log(4, s);
         }
         else
@@ -327,7 +327,7 @@ TorProcessService.prototype =
         var key = "unable_to_start_tor";
         var err = TorLauncherUtil.getFormattedLocalizedString(key,
                                                                 [details], 1);
-        //TorLauncherUtil.showAlert(null, err);
+        //TorLauncherUtil.showAlert(null, err, "unable_to_start_tor");
         return;
       }
 
@@ -374,7 +374,7 @@ TorProcessService.prototype =
         var key = "error_bridge_bad_default_type";
         var err = TorLauncherUtil.getFormattedLocalizedString(key,
                                                      [defaultBridgeType], 1);
-        //TorLauncherUtil.showAlert(null, err);
+        //TorLauncherUtil.showAlert(null, err,"error_bridge_bad_default_type");
       }
 
       if (TorLauncherUtil.shouldShowNetworkSettings || defaultBridgeType)
@@ -413,7 +413,7 @@ TorProcessService.prototype =
     {
       this.mTorProcessStatus = this.kStatusExited;
       var s = TorLauncherUtil.getLocalizedString("tor_failed_to_start");
-      //TorLauncherUtil.showAlert(null, s);
+      //TorLauncherUtil.showAlert(null, s, "tor_failed_to_start");
       TorLauncherLogger.safelog(4, "_startTor error: ", e);
     }
   }, // _startTor()
@@ -471,7 +471,7 @@ TorProcessService.prototype =
     {
       this.mTorProcessStatus = this.kStatusExited;
       var s = TorLauncherUtil.getLocalizedString("tor_control_failed");
-      //TorLauncherUtil.showAlert(null, s);
+      //TorLauncherUtil.showAlert(null, s, "tor_control_failed");
       TorLauncherLogger.safelog(4, "_controlTor error: ", e);
     }
   }, // controlTor()
@@ -540,7 +540,7 @@ TorProcessService.prototype =
           this.mObsSvc.notifyObservers(null, "TorBootstrapError", reason);
 
           var msg = TorLauncherUtil.getLocalizedString("tor_bootstrap_failed");
-          //TorLauncherUtil.showAlert(null, msg + "\n\n" + details);
+          //TorLauncherUtil.showAlert(null, msg + "\n\n" + details,"tor_bootstrap_failed");
         }
       }
     }

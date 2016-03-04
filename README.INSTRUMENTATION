@@ -1,0 +1,57 @@
+HOWTO run a copy of Tor Browser using this instrumented Tor Launcher
+
+
+== Download Tor Browser 5.0.3
+
+We stick with version 5.0.3 because this is the version we began the
+studies with. Disable the automatic updater because otherwise it would
+complain about using an old version.
+
+https://archive.torproject.org/tor-package-archive/torbrowser/5.0.3/tor-browser-linux64-5.0.3_en-US.tar.xz
+https://archive.torproject.org/tor-package-archive/torbrowser/5.0.3/tor-browser-linux64-5.0.3_en-US.tar.xz.asc
+
+echo 'user_pref("app.update.enabled", false);' >> Browser/TorBrowser/Data/Browser/profile.default/user.js
+echo 'user_pref("extensions.torbutton.no_updates", true);' >> Browser/TorBrowser/Data/Browser/profile.default/user.js
+
+
+== Set up alternate SOCKS and control ports
+
+This is so you can run a normal Tor Browser in parallel.
+https://trac.torproject.org/projects/tor/wiki/doc/TorBrowser/Hacking#LaunchingTorwithanAlternateSOCKSandControlport
+
+sed -i -e 's/Port 915/Port 925/' ./Browser/TorBrowser/Data/Tor/torrc-defaults
+
+
+== Link the modified tor-launcher extension.
+
+https://trac.torproject.org/projects/tor/wiki/doc/TorBrowser/Hacking#BuildingJustTorLauncherOrTorbutton
+
+In the tor-launcher directory:
+
+make package
+
+
+== Run on Mac OS
+
+cd TorBrowser.app
+ln -sf ~/tor-launcher/pkg/tor-launcher-0.2.7.7.xpi TorBrowser/Data/Browser/profile.default/extensions/tor-launcher\@torproject.org.xpi
+
+export TOR_SOCKS_PORT=9250
+export TOR_CONTROL_PORT=9251
+export TOR_FORCE_NET_CONFIG=1
+Contents/MacOS/firefox
+
+
+== Run on GNU/Linux
+
+cd tor-browser_en-US
+ln -sf ~/tor-launcher/pkg/tor-launcher-0.2.7.7.xpi Browser/TorBrowser/Data/Browser/profile.default/extensions/tor-launcher\@torproject.org.xpi
+
+export TOR_SOCKS_PORT=9250
+export TOR_CONTROL_PORT=9251
+export TOR_FORCE_NET_CONFIG=1
+./start-tor-browser.desktop -v
+
+
+Instrumentation messages appear on stdout and have an "INST" prefix.
+You can send them to a file with the --log option of start-tor-browser.desktop.

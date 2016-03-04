@@ -20,8 +20,8 @@
         persist="screenX screenY"
         buttonlabelextra2="&torsettings.copyLog;"
         onwizardcancel="return onCancel();"
-        onload="initDialog();"
-        onunload="deinitDialog();">
+        onload="TorLauncherLogger.INST({type: 'load', target_id: 'configuration'});initDialog();"
+        onunload="TorLauncherLogger.INST({type: 'unload', target_id: 'configuration'}); deinitDialog();">
 
   <script type="application/x-javascript"
           src="chrome://torlauncher/content/network-settings.js"/>
@@ -149,7 +149,7 @@
         <radio align="start" id="bridgeRadioCustom"
                label="&torsettings.useBridges.custom;" />
       </radiogroup>
-      <button dlgtype="help" oncommand="onOpenHelp()" />
+      <button dlgtype="help" oncommand="onOpenHelp()" id="bridgeHelpButton"/>
       </hbox>
       <vbox id="bridgeCustomEntry" hidden = "true">
       <label id="bridgeListLabel" style="margin-top:0px;"
@@ -302,4 +302,8 @@
     <label id="forAssistance" />
   </hbox>
   <panel id="copyLogFeedbackPanel" />
+
+  <script>
+    TorLauncherLogger.attach_instrumentation(document);
+  </script>
 </wizard>

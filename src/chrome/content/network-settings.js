@@ -593,6 +593,9 @@ function updateProgressWindow(percent, isthereanerror){
   var updatePoint2 = 90; 
   var updatePoint3 = 100; 
 
+  // Pretend we still have a progressmeter for instrumentation purposes.
+  TorLauncherLogger.INST({"type": "progresschanged", "target_tagname": "progressmeter", "target_id": "progressMeter", "value": percent});
+
   if (!isBridgeConfigured() && !isProxyConfigured()) {//nobridge noproxy
     configurationSettings = "nobridge-noproxy"; 
     if (percent <= updatePoint1){ 
@@ -937,7 +940,7 @@ function readTorSettings()
                                           "ensure_tor_is_running");
           var s = TorLauncherUtil.getFormattedLocalizedString(
                                       "failed_to_get_settings", [details], 1);
-          //TorLauncherUtil.showAlert(window, s);
+          //TorLauncherUtil.showAlert(window, s,"failed_to_get_settings");
           close();
         }, 0);
   }
@@ -1820,6 +1823,8 @@ function initDefaultBridgeTypeMenu()
     if (bridgeType == selectedType)
       menu.selectedItem = mi;
   }
+  // This is set in the overlay XUL but seems to get clobbered by removeAllItems.
+  menu.menupopup.id = "defaultBridgeType_menuPopup";
 }
 
 

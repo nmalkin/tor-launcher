@@ -102,7 +102,7 @@ function closeThisWindow(aBootstrapDidComplete)
 
   if (gOpenerCallbackFunc)
     gOpenerCallbackFunc(aBootstrapDidComplete);
-
+  TorLauncherLogger.INST({type: 'unload', target_id: 'progress_bar'});
   window.close();
 }
 
@@ -183,8 +183,12 @@ var gObserver = {
       var percentComplete = (statusObj.PROGRESS) ? statusObj.PROGRESS : 0;
 
       var meter = document.getElementById("progressMeter");
-      if (meter)
+      if (meter) {
         meter.value = percentComplete;
+        // progressmeter doesn't provide an event when its value changes.
+        // So fake one here.
+        TorLauncherLogger.INST({"type": "progresschanged", "target_tagname": meter.tagName, "target_id": meter.id, "value": meter.value})
+      }
 
       var bootstrapDidComplete = (percentComplete >= 100);
       if (percentComplete >= 100)

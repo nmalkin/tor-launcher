@@ -11,8 +11,13 @@ let EXPORTED_SYMBOLS = [ "TorLauncherUtil" ];
 
 const Cc = Components.classes;
 const Ci = Components.interfaces;
+const Cu = Components.utils;
 const kPropBundleURI = "chrome://torlauncher/locale/torlauncher.properties";
 const kPropNamePrefix = "torlauncher.";
+
+Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherLogger",
+                          "resource://torlauncher/modules/tl-logger.jsm");
 
 let TorLauncherUtil =  // Public
 {
@@ -36,7 +41,7 @@ let TorLauncherUtil =  // Public
   },
 
   // Error Reporting / Prompting
-  showAlert: function(aParentWindow, aMsg)
+  showAlert: function(aParentWindow, aMsg, INSTtargetID)
   {
     // TODO: alert() does not always resize correctly to fit the message.
     try
@@ -53,7 +58,10 @@ let TorLauncherUtil =  // Public
       var ps = Cc["@mozilla.org/embedcomp/prompt-service;1"]
                  .getService(Ci.nsIPromptService);
       var title = this.getLocalizedString("error_title");
+
+      TorLauncherLogger.INST({type: "alert_show", target_id: INSTtargetID, value: aMsg});
       ps.alert(aParentWindow, title, aMsg);
+      TorLauncherLogger.INST({type: "alert_exit", target_id: INSTtargetID, value: aMsg});
     }
     catch (e)
     {
@@ -108,7 +116,7 @@ let TorLauncherUtil =  // Public
 
     var s = TorLauncherUtil.getFormattedLocalizedString(
                                   "failed_to_save_settings", [aDetails], 1);
-    this.showAlert(aParentWindow, s);
+    this.showAlert(aParentWindow, s, "failed_to_save_settings");
   },
 
   // Localized Strings
