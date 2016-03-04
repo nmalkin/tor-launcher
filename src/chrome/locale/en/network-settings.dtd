@@ -4,9 +4,9 @@
 <!ENTITY torSettings.proxyPromptNO "We detected you don't need a proxy.">
 <!ENTITY torSettings.proxyPromptYES "We detected these proxy settings on your machine. You likely need these to connect.">
 <!ENTITY torSettings.noProxyDetected "Proceed without a proxy">
-<!ENTITY torSettings.noProxyDetectedR "Proceed without a proxy (recommended)">
+<!ENTITY torSettings.noProxyDetectedR "Proceed without a proxy (default)">
 <!ENTITY torSettings.yesProxyDetected "Configure a proxy">
-<!ENTITY torSettings.yesProxyDetectedR "Configure a proxy (recommended)">
+<!ENTITY torSettings.yesProxyDetectedR "Configure a proxy (default)">
 
 <!-- For wizard summary page: -->
 <!ENTITY torSettings.summaryPrompt1 "Ready to Connect!">

@@ -485,13 +485,13 @@ function onWizardProxySettingsShow()
   if (isProxyRequired){ //local proxy detected
     document.getElementById("proxyPrompt").textContent = "We detected these proxy settings on your machine. You likely need these to connect.";
     document.getElementById("proxyRadioWithout").label = "Proceed without a proxy";
-    document.getElementById("proxyRadioWith").label = "Configure a proxy (recommended)";
+    document.getElementById("proxyRadioWith").label = "Configure a proxy (default)";
     document.getElementById("proxyRadioGroup").selectedItem = document.getElementById("proxyRadioWith");
     document.getElementById("proxySpecificSettings").setAttribute("hidden", false)
   }
   else{ // no proxy required
     document.getElementById("proxyPrompt").textContent = "We detected you don't need a proxy.";
-    document.getElementById("proxyRadioWithout").label = "Proceed without a proxy (recommended)";
+    document.getElementById("proxyRadioWithout").label = "Proceed without a proxy (default)";
     document.getElementById("proxyRadioWith").label = "Configure a proxy";
     document.getElementById("proxyRadioGroup").selectedItem = document.getElementById("proxyRadioWithout");
     document.getElementById("proxySpecificSettings").setAttribute("hidden", true);
@@ -532,13 +532,10 @@ function onBridgeRadioChange()
 
 function onBridgeTypeRadioChange()
 {
+  var useDefault = getElemValue("bridgeRadioDefault", false);
+  enableElemWithLabel(kDefaultBridgeTypeMenuList, useDefault);
   var useCustom = getElemValue(kCustomBridgesRadio, false);
-  enableElemWithLabel(kDefaultBridgeTypeMenuList, !useCustom);
   enableElemWithLabel(kBridgeList + "Label", useCustom);
-  var focusElemID = (useCustom) ? kBridgeList : kDefaultBridgeTypeMenuList;
-  var elem = document.getElementById(focusElemID);
-  if (elem)
-    elem.focus();
 }
 
 function onWizardSummary(){
