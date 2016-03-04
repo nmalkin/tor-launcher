@@ -32,13 +32,13 @@
               onpageshow="setTimeout(function() { showWizardNavButtons(false); }, 0);">
     <vbox class="firstResponses" align="center">
       <image src="chrome://torlauncher/skin/tbb-logo.png" />
-      <separator />
-      <button label="&torSettings.connect;" id="connect_button" class="highlighted" oncommand="useSettings();gotoinlineprogress();"/>
+      <separator class='tall'/>
+      <button label="&torSettings.connect;" id="connect_button" oncommand="useSettings();gotoinlineprogress();"/>
       <separator class="short"/>
       <label>&torSettings.connectPrompt;</label>
-      <separator class="short"/>
+      <separator class='tall'/>
       <label class="heading">&torSettings.or;</label>
-      <separator class="short"/>
+      <separator class='tall'/>
       <button label="&torSettings.configure;" id="configure_button"
         oncommand="onWizardConfigure();"/>
       <separator class="short"/>

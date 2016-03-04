@@ -5,14 +5,15 @@
  * vim: set sw=2 sts=2 ts=8 et syntax=css:
  */
 
-#connect_button {
+/* #connect_button {
   padding: 2em;
   font-size: 130%;
 }
+/*
 
 button.highlighted {
   background-color: #3c3;
-  -moz-appearance: none;
+  /* -moz-appearance: none; */
 }
 
 .steps {
