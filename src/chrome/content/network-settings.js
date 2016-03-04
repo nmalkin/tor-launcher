@@ -585,20 +585,23 @@ function onWizardSummary(){
   }
 }
 
-function updateProgressImage(percent){
+function updateProgressWindow(percent, isthereanerror){
   var configurationSettings = "null"; 
   var number 
+  var type 
   var updatePoint1 = 5;
-  var updatePoint2 = 10; 
+  var updatePoint2 = 90; 
   var updatePoint3 = 100; 
 
   if (!isBridgeConfigured() && !isProxyConfigured()) {//nobridge noproxy
     configurationSettings = "nobridge-noproxy"; 
     if (percent <= updatePoint1){ 
       number = 1; 
+      advice = "Check your network settings, try configuring a proxy, try configuring a bridge.";
     }
     else if (percent < updatePoint3){
       number = 2;
+      advice = "Try your connection again.";
     }
     else {
       number = 3;
@@ -608,12 +611,15 @@ function updateProgressImage(percent){
     configurationSettings = "bridge-noproxy"; 
     if (percent <= updatePoint1){
       number = 1; 
+      advice = "Check that your internet settings, try another bridge, try without a bridge, try configuring a proxy."
     }
     else if (percent < updatePoint2){
       number = 2;
+      advice = "Try your connection again.";
     }
     else if (percent < updatePoint3){
       number = 3;
+      advice = "Try your connection again.";
     }
     else {
       number = 4;
@@ -623,12 +629,15 @@ function updateProgressImage(percent){
     configurationSettings = "nobridge-proxy"; 
     if (percent <= updatePoint1){
       number = 1; 
+      advice = "Check your internet settings, check your proxy settings.";
     }
     else if (percent < updatePoint2){
       number = 2;
+      advice = "Try connecting with a bridge.";
     }
     else if (percent < updatePoint3){
       number = 3;
+      advice = "Try your connection again.";
     }
     else {
       number = 4;
@@ -638,19 +647,37 @@ function updateProgressImage(percent){
     configurationSettings = "bridge-proxy"; 
     if (percent <= updatePoint1){ 
       number = 1; 
+      advice = "Check your internet settings, check your proxy settings.";
     }
     else if (percent < updatePoint2){
       number = 2;
+      advice = "Try another bridge, try without a bridge.";
     }
     else if (percent < updatePoint3){
       number = 3;
+      advice = "Try your connection again.";
     }
     else {
       number = 4;
+      advice = "Try your connection again.";
     }
   }
 
-  document.getElementById("progressbar").src = "chrome://torlauncher/skin/"+configurationSettings+"-good"+number+".png";
+  if (isthereanerror){
+    type = "bad";
+    showOrHideButton("back", true, false);
+    // update headline
+    document.getElementById("progressPrompt1").textContent = advice;
+    // get rid of timing and give advice? 
+    document.getElementById("progressPrompt2").textContent = " "; 
+    // update connecting with 
+    document.getElementById("progressPrompt3").textContent = "Attempted with: "
+  }
+  else {
+    type = "good";
+  }
+
+  document.getElementById("progressbar").src = "chrome://torlauncher/skin/"+configurationSettings+"-"+type+number+".png";
 }
 
 function onWizardProgress(){
@@ -816,7 +843,7 @@ var gObserverProgress = {
                 TorLauncherUtil.getLocalizedBootstrapStatus(statusObj, "TAG");
       var percentComplete = (statusObj.PROGRESS) ? statusObj.PROGRESS : 0;
 
-      updateProgressImage(percentComplete);
+      updateProgressWindow(percentComplete, false);
 
       //var meter = document.getElementById("progressMeter");
       //if (meter)
@@ -831,16 +858,18 @@ var gObserverProgress = {
       }
       else if (statusObj._errorOccurred)
       {
+        updateProgressWindow(percentComplete,true);
+
         var s = TorLauncherUtil.getLocalizedBootstrapStatus(statusObj, "REASON");
         if (s)
           labelText = s;
 
-        if (meter)
-          meter.setAttribute("hidden", true);
+        //if (meter)
+        //  meter.setAttribute("hidden", true);
 
-        var pleaseWait = document.getElementById("progressPleaseWait");
-        if (pleaseWait)
-          pleaseWait.setAttribute("hidden", true);
+        //var pleaseWait = document.getElementById("progressPleaseWait");
+        //if (pleaseWait)
+        //  pleaseWait.setAttribute("hidden", true);
       }
 
       var desc = document.getElementById("progressDesc");
@@ -908,7 +937,7 @@ function readTorSettings()
                                           "ensure_tor_is_running");
           var s = TorLauncherUtil.getFormattedLocalizedString(
                                       "failed_to_get_settings", [details], 1);
-          TorLauncherUtil.showAlert(window, s);
+          //TorLauncherUtil.showAlert(window, s);
           close();
         }, 0);
   }

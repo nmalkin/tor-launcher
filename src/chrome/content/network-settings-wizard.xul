@@ -201,14 +201,14 @@
   <wizardpage pageid="inlineprogress" onpageshow="onWizardProgress();">
     <vbox align="center">
       <separator class="tall"></separator>
-      <label class ="tbb-wizardpage-title"> &torSettings.progressPrompt1;</label>
+      <label id='progressPrompt1' class ="tbb-wizardpage-title"> &torSettings.progressPrompt1;</label>
       <separator />
-      <label>&torSettings.progressPrompt2; </label>
+      <label id='progressPrompt2'>&torSettings.progressPrompt2; </label>
       <separator />
       <image id="progressbar" src="chrome://torlauncher/skin/nobridge-noproxy-good1.png"
       height="40px"></image>
       <separator class="tall"></separator>
-      <label class="heading">&torSettings.progressPrompt3;</label>
+      <label id='progressPrompt3' class="heading">&torSettings.progressPrompt3;</label>
       <separator />
       <hbox>
         <vbox align="right">
