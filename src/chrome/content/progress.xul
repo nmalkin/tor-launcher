@@ -20,7 +20,7 @@
         buttonlabelextra2="&torprogress.openSettings;"
         ondialogcancel="return onCancel();"
         ondialogextra2="onOpenSettings();"
-        onload="initDialog();">
+        onload="TorLauncherLogger.INST({type: 'load', target_id: 'progress_bar'}); initDialog();">
 
     <script type="application/x-javascript"
             src="chrome://torlauncher/content/progress.js"/>
@@ -41,4 +41,8 @@
     <description id="progressPleaseWait"
                  hidden="true">&torprogress.pleaseWait;</description>
   </vbox>
+
+  <script>
+    TorLauncherLogger.attach_instrumentation(document);
+  </script>
 </dialog>

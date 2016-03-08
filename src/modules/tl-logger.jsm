@@ -23,6 +23,17 @@ Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 XPCOMUtils.defineLazyModuleGetter(this, "TorLauncherUtil",
                           "resource://torlauncher/modules/tl-util.jsm");
 
+// https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules/OSFile.jsm
+// https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules/OSFile.jsm/OS.File_for_the_main_thread
+// OS.File.open returns a promise which we resolve in TorLauncherLogger.INST.
+Cu.import("resource://gre/modules/osfile.jsm");
+var kInstFile = OS.File.open("inst.log", {write: true, append: true});
+
+var array = new Uint32Array(8);
+var inst_run_id = "";
+for (var i = 0; i < array.length; i++) {
+  inst_run_id += ("0" + Math.floor(Math.random() * 256).toString(16)).slice(-2);
+}
 
 let TorLauncherLogger = // Public
 {
@@ -90,6 +101,91 @@ let TorLauncherLogger = // Public
         if (TLLoggerInternal.mLogLevel <= level)
           TLLoggerInternal.mConsole.logStringMessage(this.formatLog(str,level));
         break;
+    }
+  },
+
+  // Log an instrumentation message.
+  INST: function(obj)
+  {
+    var d = new Date();
+    msg = "INST " + inst_run_id + " " + d.toISOString() + " " + JSON.stringify(obj) + "\n";
+    dump(msg);
+    let array = (new TextEncoder()).encode(msg);
+    kInstFile.then(f => f.write(array));
+  },
+
+  instrument_event: function(event)
+  {
+    // Ignore mouseout and mouseover except on menuitem.
+    if (event.type === "mouseout" || event.type === "mouseover") {
+      if (event.target.tagName !== "menuitem") {
+        return;
+      }
+    }
+
+    var o = {};
+    o.type = event.type;
+    o.target_tagname = event.target.tagName;
+    if (event.target.tagName === "wizardpage") {
+      o.target_id = event.target.pageid;
+    } else {
+      o.target_id = event.target.id;
+    }
+
+    if (event.target.tagName === "menulist" || event.target.tagName === "menuitem") {
+      o.value = event.target.value;
+    }
+
+    if (event.type === "click") {
+      o.detail = event.detail;
+    }
+    if (event.type === "change") {
+      o.value = event.target.value;
+    }
+
+    TorLauncherLogger.INST(o);
+  },
+
+  attach_instrumentation: function(elem)
+  {
+    var eventNames = [
+      "change",
+      "click",
+      "command",
+      "mouseout",
+      "mouseover",
+      "select",
+
+      // dialog
+      "dialogaccept",
+      "dialogcancel",
+      "dialogdisclosure",
+      "dialogextra1",
+      "dialogextra2",
+      "dialoghelp",
+
+      // menupopup
+      "popuphidden",
+      // "popuphiding",
+      // "popupshowing",
+      "popupshown",
+
+      // wizard
+      "extra1",
+      "extra2",
+      "wizardback",
+      "wizardcancel",
+      "wizardfinish",
+      "wizardnext",
+
+      // wizardpage
+      "pageadvanced",
+      "pagehide",
+      "pagerewound",
+      "pageshow",
+    ];
+    for (var i = 0; i < eventNames.length; i++) {
+      elem.addEventListener(eventNames[i], TorLauncherLogger.instrument_event, false);
     }
   },
 };
@@ -162,3 +258,4 @@ let TLLoggerInternal = // Private
 
 
 TLLoggerInternal._init();
+TorLauncherLogger.INST({"type": "start"})
