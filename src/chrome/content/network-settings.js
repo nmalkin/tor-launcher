@@ -589,7 +589,7 @@ function updateProgressWindow(percent, isthereanerror){
   var configurationSettings = "null"; 
   var number 
   var type 
-  var updatePoint1 = 5;
+  var updatePoint1 = 20;
   var updatePoint2 = 90; 
   var updatePoint3 = 100; 
 
@@ -597,11 +597,16 @@ function updateProgressWindow(percent, isthereanerror){
     configurationSettings = "nobridge-noproxy"; 
     if (percent <= updatePoint1){ 
       number = 1; 
-      advice = "Check your network settings, try configuring a proxy, try configuring a bridge.";
+      if (percent < 5){
+        advice = "Check that you are connected to the internet."
+      }
+      else {
+        advice = "Try configuring your connection.";
+      }
     }
     else if (percent < updatePoint3){
       number = 2;
-      advice = "Try your connection again.";
+      advice = "Try connecting again with the same settings.";
     }
     else {
       number = 3;
@@ -611,15 +616,21 @@ function updateProgressWindow(percent, isthereanerror){
     configurationSettings = "bridge-noproxy"; 
     if (percent <= updatePoint1){
       number = 1; 
-      advice = "Check that your internet settings, try another bridge, try without a bridge, try configuring a proxy."
+      if (percent < 5){
+        advice = "Check that you are connected to the internet."
+      }
+      else {
+        advice = "Try adjusting your bridge settings. Pick a different bridge, or try without a one."; 
+        //or use a proxy (but our participants don't need one)
+      }
     }
     else if (percent < updatePoint2){
       number = 2;
-      advice = "Try your connection again.";
+      advice = "Try connecting again with the same settings.";
     }
     else if (percent < updatePoint3){
       number = 3;
-      advice = "Try your connection again.";
+      advice = "Try connecting again with the same settings.";
     }
     else {
       number = 4;
@@ -629,7 +640,8 @@ function updateProgressWindow(percent, isthereanerror){
     configurationSettings = "nobridge-proxy"; 
     if (percent <= updatePoint1){
       number = 1; 
-      advice = "Check your internet settings, check your proxy settings.";
+      //hack since we know our participants don't need a proxy. 
+      advice = "Try connecting without a proxy."; 
     }
     else if (percent < updatePoint2){
       number = 2;
@@ -637,7 +649,7 @@ function updateProgressWindow(percent, isthereanerror){
     }
     else if (percent < updatePoint3){
       number = 3;
-      advice = "Try your connection again.";
+      advice = "Try connecting again, with the same settings.";
     }
     else {
       number = 4;
@@ -647,19 +659,21 @@ function updateProgressWindow(percent, isthereanerror){
     configurationSettings = "bridge-proxy"; 
     if (percent <= updatePoint1){ 
       number = 1; 
-      advice = "Check your internet settings, check your proxy settings.";
+      //hack since we know our participants don't need a proxy. 
+      advice = "Try connecting without a proxy.";
     }
     else if (percent < updatePoint2){
       number = 2;
-      advice = "Try another bridge, try without a bridge.";
+      advice = "Try adjusting your bridge settings. You may need to pick a different bridge, or try without a bridge."; //or check network settings 
+      //or use a proxy (but our participants don't need one)
     }
     else if (percent < updatePoint3){
       number = 3;
-      advice = "Try your connection again.";
+      advice = "Try connecting again, with the same settings.";
     }
     else {
       number = 4;
-      advice = "Try your connection again.";
+      advice = "Try connecting again, with the same settings.";
     }
   }
 
@@ -702,6 +716,11 @@ function onWizardProgress(){
   else if (isBridgeConfigured() && isProxyConfigured()) {//bridge proxy
     document.getElementById("progressbar").src = "chrome://torlauncher/skin/bridge-proxy-good1.png";
   }
+
+  //This needs to happen every time, or else the error messages persist. 
+  document.getElementById("progressPrompt1").textContent = "Connecting..."
+  document.getElementById("progressPrompt2").textContent = "Please wait. It's normal for connections to take a while."
+  document.getElementById("progressPrompt3").textContent = "Connecting with:"
 
   //filling in the connection summary. 
   if (getElemValue("bridgeRadioCustom", false)){
@@ -938,6 +957,7 @@ function readTorSettings()
           var s = TorLauncherUtil.getFormattedLocalizedString(
                                       "failed_to_get_settings", [details], 1);
           //TorLauncherUtil.showAlert(window, s);
+          updateProgressWindow(percentComplete,true);
           close();
         }, 0);
   }

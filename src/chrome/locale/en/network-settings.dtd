@@ -14,7 +14,7 @@
 
 <!-- For inline progress page: -->
 <!ENTITY torSettings.progressPrompt1 "Connecting...">
-<!ENTITY torSettings.progressPrompt2 "Connection may take up to 2 minutes.">
+<!ENTITY torSettings.progressPrompt2 "Please wait. It's normal for connections to take a while.">
 <!ENTITY torSettings.progressPrompt3 "Connecting with:">
 
 <!-- For summary & inline progress page: -->
