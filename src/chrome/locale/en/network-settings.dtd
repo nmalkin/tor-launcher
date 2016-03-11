@@ -37,7 +37,7 @@
 <!ENTITY torSettings.no "No">
 
 <!ENTITY torSettings.firstQuestion "Which of the following best describes your situation?">
-<!ENTITY torSettings.configurePrompt "Choose advanced connection settings. For some censored situations.">
+<!ENTITY torSettings.configurePrompt "Choose advanced connection settings. For heavily censored situations.">
 <!ENTITY torSettings.configure "Configure Manually">
 <!ENTITY torSettings.connectPrompt "Connect with defaults. This will work in most situations.">
 <!ENTITY torSettings.connect "Connect">
@@ -67,12 +67,13 @@
 <!ENTITY torsettings.useProxy.type.http "HTTP / HTTPS">
 <!ENTITY torsettings.firewall.checkbox "This computer goes through a firewall that only allows connections to certain ports">
 <!ENTITY torsettings.firewall.allowedPorts "Allowed Ports:">
-<!ENTITY torSettings.bridgeSettingsPrompt "If your country blocks Tor, you should select a bridge.">
+<!ENTITY torSettings.bridgeSettingsPrompt "If your country is heavily censored (blocks Tor), select a bridge.">
 <!ENTITY torsettings.useBridges.checkbox "My Internet Service Provider (ISP) blocks connections to the Tor network">
 <!ENTITY torsettings.useBridges.default "Connect with a standard bridge">
-<!ENTITY torsettings.useBridges.note "Each avoids censorship differently. If one doesn't work, try the next on the list.">
+<!ENTITY torsettings.useBridges.note1 "If one fails, try the next on the list.">
+<!ENTITY torsettings.useBridges.note2 "Each avoids censorship differently.">
 <!ENTITY torsettings.useBridges.type "">
-<!ENTITY torsettings.useBridges.custom "Connect with a custom bridge">
+<!ENTITY torsettings.useBridges.custom "Type in a custom bridge">
 <!ENTITY torsettings.useBridges.label "Enter one or more bridge relays (one per line).">
 <!ENTITY torsettings.useBridges.placeholder "type address:port">
 

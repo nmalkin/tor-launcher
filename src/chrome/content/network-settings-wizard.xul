@@ -56,6 +56,7 @@
     <separator />
     <vbox align="center">
     <label id = "proxyPrompt" class="heading"></label>
+    <separator class="tall"/>
     <radiogroup id="proxyRadioGroup"
         oncommand="onProxyRadioChange()">
       <radio id="proxyRadioWithout" label="overwritten" />
@@ -127,7 +128,6 @@
     <separator />
     <vbox align="center">
       <label id="bridgeSettingsPrompt" class="question">&torSettings.bridgeSettingsPrompt;</label>
-      <label>&torsettings.useBridges.note;</label>
       <separator class="tall"/>
       <hbox align="end" pack="end">
       <radiogroup id="bridgeTypeRadioGroup" flex="1" style="margin: 0px"
@@ -139,12 +139,15 @@
           <label id="defaultBridgeTypeLabel"
                  value="&torsettings.useBridges.type;"
                  control="defaultBridgeType"/>
-          <menulist id="defaultBridgeType">
+          <menulist id="defaultBridgeType" hidden="true">
             <menupopup id="defaultBridgeType_menuPopup" />
           </menulist>
           <spring/>
         </hbox>
-        <spacer style="height: 0.5em" />
+        <vbox align="center">
+        <label id="bridgeAdvice1" hidden="true">&torsettings.useBridges.note1;</label>
+        <label id="bridgeAdvice2" hidden="true">&torsettings.useBridges.note2;</label>
+        </vbox>
 
         <radio align="start" id="bridgeRadioCustom"
                label="&torsettings.useBridges.custom;" />
@@ -198,7 +201,8 @@
     </vbox>
   </wizardpage> 
 
-  <wizardpage pageid="inlineprogress" onpageshow="onWizardProgress();">
+  <wizardpage pageid="inlineprogress" onpageshow="onWizardProgress();"
+  onback="goToProxy();">
     <vbox align="center">
       <separator class="tall"></separator>
       <label id='progressPrompt1' class ="tbb-wizardpage-title"> &torSettings.progressPrompt1;</label>
@@ -233,6 +237,15 @@
         </vbox>
       </hbox>
     </vbox>
+    <separator />
+    <hbox>
+      <spring flex="1" />
+      <button id="restartTorButton" label="&torsettings.restartTor;"
+              hidden="true" oncommand="onRestartTor()" />
+      <button id="reconfigTorButton" label="&torsettings.reconfigTor;"
+              hidden="true" oncommand="onWizardReconfig()" />
+      <spring flex="1" />
+    </hbox>
   </wizardpage> 
 
   <!-- This page requires a setTimeout for onpageshow because it may be

@@ -196,7 +196,7 @@ function initDialog()
         // Call preventDefault to prevent the wizard from actually finishing,
         // then advance to the inlineprogress page.
         event.preventDefault();
-        getWizard().advance("inlineprogress");
+        gotoinlineprogress();
       };
     }
 
@@ -528,6 +528,18 @@ function onBridgeRadioChange()
   else{//don't need to use proxy
     document.getElementById("bridgeCustomEntry").setAttribute("hidden", true);
   }
+
+  var useDefault = getElemValue("bridgeRadioDefault", false);
+  if (useDefault){//show bridge dropdown and advice
+    document.getElementById("defaultBridgeType").setAttribute("hidden", false);
+    document.getElementById("bridgeAdvice1").setAttribute("hidden", false);
+    document.getElementById("bridgeAdvice2").setAttribute("hidden", false);
+  }
+  else{//hide bridge dropdown and advice 
+    document.getElementById("defaultBridgeType").setAttribute("hidden", true);
+    document.getElementById("bridgeAdvice1").setAttribute("hidden", true);
+    document.getElementById("bridgeAdvice2").setAttribute("hidden", true);
+  }
 }
 
 function onBridgeTypeRadioChange()
@@ -682,7 +694,9 @@ function updateProgressWindow(percent, isthereanerror){
 
   if (isthereanerror){
     type = "bad";
-    showOrHideButton("back", true, false);
+    //give them a reconfigure button 
+    document.getElementById("reconfigTorButton").setAttribute("hidden",false);
+    document.getElementById("restartTorButton").setAttribute("hidden",false);
     // update headline
     document.getElementById("progressPrompt1").textContent = advice;
     // get rid of timing and give advice? 
@@ -724,6 +738,8 @@ function onWizardProgress(){
   document.getElementById("progressPrompt1").textContent = "Connecting..."
   document.getElementById("progressPrompt2").textContent = "Please wait. It's normal for connections to take a while."
   document.getElementById("progressPrompt3").textContent = "Connecting with:"
+  document.getElementById("reconfigTorButton").setAttribute("hidden",true);
+  document.getElementById("reconfigTorButton").setAttribute("hidden",true);
 
   //filling in the connection summary. 
   if (getElemValue("bridgeRadioCustom", false)){
@@ -1566,6 +1582,11 @@ function applySettings(aUseDefaults)
   TorLauncherLogger.log(2, "applySettings done");
 
   return didSucceed;
+}
+
+function goToProxy()
+{
+  getWizard().advance("proxy");
 }
 
 function gotoinlineprogress()
