@@ -1584,11 +1584,6 @@ function applySettings(aUseDefaults)
   return didSucceed;
 }
 
-function goToProxy()
-{
-  getWizard().advance("proxy");
-}
-
 function gotoinlineprogress()
 {
   getWizard().advance("inlineprogress");
