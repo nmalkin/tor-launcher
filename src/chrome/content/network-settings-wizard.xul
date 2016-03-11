@@ -240,8 +240,6 @@
     <separator />
     <hbox>
       <spring flex="1" />
-      <button id="restartTorButton" label="&torsettings.restartTor;"
-              hidden="true" oncommand="onRestartTor()" />
       <button id="reconfigTorButton" label="&torsettings.reconfigTor;"
               hidden="true" oncommand="onWizardReconfig()" />
       <spring flex="1" />

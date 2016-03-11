@@ -742,7 +742,6 @@ function onWizardProgress(){
   document.getElementById("progressPrompt2").textContent = "Please wait. It's normal for connections to take a while."
   document.getElementById("progressPrompt3").textContent = "Connecting with:"
   document.getElementById("reconfigTorButton").setAttribute("hidden",true);
-  document.getElementById("reconfigTorButton").setAttribute("hidden",true);
 
   //filling in the connection summary. 
   if (getElemValue("bridgeRadioCustom", false)){
