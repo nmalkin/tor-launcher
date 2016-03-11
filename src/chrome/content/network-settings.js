@@ -709,6 +709,9 @@ function updateProgressWindow(percent, isthereanerror){
   }
 
   document.getElementById("progressbar").src = "chrome://torlauncher/skin/"+configurationSettings+"-"+type+number+".png";
+  // Record when the images change.
+  TorLauncherLogger.INST({"type": "progressimagechanged", "target_tagname": "image", "target_id": "progressbar", 
+    "configurationSettings": configurationSettings, "type": type, "number": number});
 }
 
 function onWizardProgress(){
