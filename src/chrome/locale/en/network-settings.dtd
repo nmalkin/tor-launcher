@@ -70,8 +70,8 @@
 <!ENTITY torSettings.bridgeSettingsPrompt "If your country is heavily censored (blocks Tor), select a bridge.">
 <!ENTITY torsettings.useBridges.checkbox "My Internet Service Provider (ISP) blocks connections to the Tor network">
 <!ENTITY torsettings.useBridges.default "Connect with a standard bridge">
-<!ENTITY torsettings.useBridges.note1 "If one fails, try the next on the list.">
-<!ENTITY torsettings.useBridges.note2 "Each avoids censorship differently.">
+<!ENTITY torsettings.useBridges.note1 "If the recommended one fails, try a meek bridge.">
+<!ENTITY torsettings.useBridges.note2 "If the meek briges fail, try a custom bridge.">
 <!ENTITY torsettings.useBridges.type "">
 <!ENTITY torsettings.useBridges.custom "Type in a custom bridge">
 <!ENTITY torsettings.useBridges.label "Enter one or more bridge relays (one per line).">
