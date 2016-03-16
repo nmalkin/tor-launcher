@@ -285,6 +285,8 @@ let TorLauncherUtil =  // Public
 
   get shouldPromptForLocale()
   {
+    return false;
+
     const kPrefPromptForLocale = "extensions.torlauncher.prompt_for_locale";
     try
     {
