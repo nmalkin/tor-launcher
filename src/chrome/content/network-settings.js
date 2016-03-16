@@ -912,7 +912,7 @@ var gObserverProgress = {
         //  pleaseWait.setAttribute("hidden", true);
       }
 
-      var desc = document.getElementById("progressDesc");
+      var desc = document.getElementById("progressPrompt1");
       if (labelText && desc)
         desc.textContent = labelText;
     }
