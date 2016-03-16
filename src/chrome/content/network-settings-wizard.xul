@@ -50,9 +50,11 @@
               onpageshow="onWizardProxySettingsShow()"
               onpageadvanced="return (getAndValidateProxySettings() != null)">
     <separator class="tall"></separator>
-    <hbox class="steps">
-      <image src="chrome://torlauncher/skin/step-proxy.png"></image>
-    </hbox>
+    <vbox align="center">
+      <hbox class="steps">
+        <image src="chrome://torlauncher/skin/step-proxy.png"></image>
+      </hbox>
+    </vbox>
     <separator />
     <vbox align="center">
     <label id = "proxyPrompt" class="heading"></label>
@@ -122,9 +124,11 @@
   <wizardpage pageid="bridges" next="summary" onextra2="onCopyLog();"
               onpageadvanced="return (getAndValidateBridgeSettings() != null)">
     <separator class="tall"></separator>
-    <hbox class="steps">
-      <image src="chrome://torlauncher/skin/step-bridge.png"></image>
-    </hbox>
+    <vbox align="center">
+      <hbox class="steps">
+        <image src="chrome://torlauncher/skin/step-bridge.png"></image>
+      </hbox>
+    </vbox>
     <separator />
     <vbox align="center">
       <label id="bridgeSettingsPrompt" class="question">&torSettings.bridgeSettingsPrompt;</label>
@@ -167,9 +171,11 @@
   <wizardpage pageid="summary" onpageshow="onWizardSummary();"
     onpageadvanced="return applySettings(false);">
     <separator class="tall"></separator>
-    <hbox class="steps">
-      <image src="chrome://torlauncher/skin/step-summary.png"></image>
-    </hbox>
+    <vbox align="center">
+      <hbox class="steps">
+        <image src="chrome://torlauncher/skin/step-summary.png"></image>
+      </hbox>
+    </vbox>
     <vbox align="center">
       <separator class="tall"></separator>
       <label class ="tbb-wizardpage-title">&torSettings.summaryPrompt1;</label>
