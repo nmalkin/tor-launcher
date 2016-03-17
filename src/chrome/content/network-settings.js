@@ -883,7 +883,7 @@ var gObserverProgress = {
                 TorLauncherUtil.getLocalizedBootstrapStatus(statusObj, "TAG");
       var percentComplete = (statusObj.PROGRESS) ? statusObj.PROGRESS : 0;
 
-      updateProgressWindow(percentComplete, false);
+      isthereanerror = false; 
 
       //var meter = document.getElementById("progressMeter");
       //if (meter)
@@ -898,7 +898,7 @@ var gObserverProgress = {
       }
       else if (statusObj._errorOccurred)
       {
-        updateProgressWindow(percentComplete,true);
+        isthereanerror = true; 
 
         var s = TorLauncherUtil.getLocalizedBootstrapStatus(statusObj, "REASON");
         if (s)
@@ -915,6 +915,7 @@ var gObserverProgress = {
       var desc = document.getElementById("progressPrompt1");
       if (labelText && desc)
         desc.textContent = labelText;
+      updateProgressWindow(percentComplete,isthereanerror);
     }
     TorLauncherLogger.log(5, "< gObserverProgress.observe");
   },
