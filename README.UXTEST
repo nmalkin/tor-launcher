@@ -11,7 +11,7 @@ https://archive.torproject.org/tor-package-archive/torbrowser/5.0.3/tor-browser-
 https://archive.torproject.org/tor-package-archive/torbrowser/5.0.3/tor-browser-linux64-5.0.3_en-US.tar.xz.asc
 
 echo 'user_pref("app.update.enabled", false);' >> Browser/TorBrowser/Data/Browser/profile.default/user.js
-echo 'user_pref("extensions.torbutton.no_updates", true);' >> Browser/TorBrowser/Data/Browser/profile.default/user.js
+echo 'user_pref("extensions.torbutton.versioncheck_enabled", false);' >> Browser/TorBrowser/Data/Browser/profile.default/user.js
 
 
 == Set up alternate SOCKS and control ports
