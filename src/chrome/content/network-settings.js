@@ -696,7 +696,7 @@ function updateProgressWindow(percent, isthereanerror){
     type = "bad";
     //give them a reconfigure button 
     document.getElementById("reconfigTorButton").setAttribute("hidden",false);
-    document.getElementById("retryButton").setAttribute("hidden",false);
+    document.getElementById("restartTorButton").setAttribute("hidden",false);
     // update headline
     document.getElementById("progressPrompt1").textContent = advice;
     // get rid of timing and give advice? 
