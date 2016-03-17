@@ -246,8 +246,10 @@
     <separator />
     <hbox>
       <spring flex="1" />
-      <button id="reconfigTorButton" label="&torsettings.reconfigTor;"
+      <button id="reconfigTorButton" label="Edit Settings"
               hidden="true" oncommand="onWizardReconfig()" />
+      <button id="restartTorButton" label="Restart"
+              hidden="true" oncommand="onRestartTor()" />
       <spring flex="1" />
     </hbox>
   </wizardpage> 
