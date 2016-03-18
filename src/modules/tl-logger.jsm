@@ -111,7 +111,7 @@ let TorLauncherLogger = // Public
     msg = "INST " + inst_run_id + " " + d.toISOString() + " " + JSON.stringify(obj) + "\n";
     dump(msg);
     let array = (new TextEncoder()).encode(msg);
-    kInstFile.then(f => f.write(array));
+    kInstFile.then(f => f.write(array).then(val => f.flush()));
   },
 
   instrument_event: function(event)
