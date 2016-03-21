@@ -551,6 +551,9 @@ function onBridgeTypeRadioChange()
 }
 
 function onWizardSummary(){
+  //always show the connect button. 
+  showOrHideButton("finish", true, false);
+
   if (getElemValue("bridgeRadioCustom", false)){
     document.getElementById("summaryBridge").textContent = "Custom Bridge(s)."
   } 
