@@ -694,9 +694,8 @@ function updateProgressWindow(percent, isthereanerror){
 
   if (isthereanerror){
     type = "bad";
-    //give them a reconfigure button 
-    document.getElementById("reconfigTorButton").setAttribute("hidden",false);
-    document.getElementById("restartTorButton").setAttribute("hidden",false);
+    //give them a back button 
+    showOrHideButton("back", true, false);
     // update headline
     document.getElementById("progressPrompt1").textContent = advice;
     // get rid of timing and give advice? 
@@ -741,8 +740,6 @@ function onWizardProgress(){
   document.getElementById("progressPrompt1").textContent = "Connecting..."
   document.getElementById("progressPrompt2").textContent = "Please wait. It's normal for connections to take a while."
   document.getElementById("progressPrompt3").textContent = "Connecting with:"
-  document.getElementById("reconfigTorButton").setAttribute("hidden",true);
-  document.getElementById("restartTorButton").setAttribute("hidden",true);
 
   //filling in the connection summary. 
   if (getElemValue("bridgeRadioCustom", false)){
