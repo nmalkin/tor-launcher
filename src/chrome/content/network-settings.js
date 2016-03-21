@@ -232,7 +232,7 @@ function initDialog()
      (status != gTorProcessService.kStatusRunning))
   {
     if (status == gTorProcessService.kStatusExited)
-      showErrorMessage(true, null, false);
+      //showErrorMessage(true, null, false);
     else
       showStartingTorPanel();
     addObserver(kTorProcessReadyTopic);
@@ -809,12 +809,12 @@ var gObserver = {
     {
       removeObserver(kTorProcessReadyTopic);
       removeObserver(kTorProcessDidNotStartTopic);
-      showErrorMessage(false, aData, false);
+      //showErrorMessage(false, aData, false);
     }
     else if (kTorProcessExitedTopic == aTopic)
     {
       removeObserver(kTorProcessExitedTopic);
-      showErrorMessage(true, null, false);
+      //showErrorMessage(true, null, false);
     }
     else if (kTorOpenProgressTopic == aTopic)
     {
@@ -968,7 +968,7 @@ function readTorSettings()
   if (!didSucceed)
   {
     // Unable to communicate with tor.  Hide settings and display an error.
-    showErrorMessage(false, null, false);
+    //showErrorMessage(false, null, false);
 
     setTimeout(function()
         {
@@ -1084,7 +1084,7 @@ function showErrorMessage(aTorExited, aErrorMsg, aShowReconfigButton)
 
 
 function showCopyLogButton(aHaveErrorOrWarning)
-{
+{ 
   let copyLogBtn = document.documentElement.getButton("extra2");
   if (copyLogBtn)
   {
