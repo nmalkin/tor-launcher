@@ -1566,6 +1566,7 @@ function initBridgeSettings()
   if (radio)
     radio.control.selectedItem = radio;
   onBridgeTypeRadioChange();
+  onBridgeRadioChange();
   return true;
 }
 
