@@ -1529,9 +1529,7 @@ function initBridgeSettings()
 
     if (!setBridgeListElemValue(bridgeReply.lineArray))
     {
-      if (canUseDefaultBridges)
-        useDefault = true;  // We have no custom values... back to default.
-      else
+      if (!canUseDefaultBridges)
         useBridges = false; // No custom or default bridges are available.
     }
   }
@@ -1550,9 +1548,19 @@ function initBridgeSettings()
       radioGroup.setAttribute("hidden", true);
   }
 
-  //always initializes bridge selection to no bridge.
-  var radioID = "bridgeRadioNone";
-  //var radioID = (useDefault) ? "bridgeRadioDefault" : "bridgeRadioCustom";
+  var bridgeStr = getElemValue(kBridgeList, null);
+  var radioID;
+  if (useDefault)
+  {
+    radioID = "bridgeRadioDefault";
+  }
+  else
+  {
+    if (bridgeStr)
+      radioID = "bridgeRadioCustom";
+    else
+      radioID = "bridgeRadioNone";
+  }
   
   var radio = document.getElementById(radioID);
   if (radio)
