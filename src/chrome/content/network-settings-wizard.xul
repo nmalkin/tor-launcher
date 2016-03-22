@@ -169,6 +169,7 @@
   </wizardpage>
 
   <wizardpage pageid="summary" onpageshow="onWizardSummary();"
+    onextra2="onCopyLog();"
     onpageadvanced="return applySettings(false);">
     <separator class="tall"></separator>
     <vbox align="center">
@@ -208,6 +209,7 @@
   </wizardpage> 
 
   <wizardpage pageid="inlineprogress" onpageshow="onWizardProgress();"
+  onextra2="onCopyLog();"
   onback="goToProxy();">
     <vbox align="center">
       <separator class="tall"></separator>
