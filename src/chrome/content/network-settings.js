@@ -721,9 +721,6 @@ function onWizardProgress(){
   showOrHideButton("back", false, false);
   showOrHideButton("cancel", true, false);
   showOrHideButton("finish", false, false);
-  showOrHideButton("next", false, false);
-  showOrHideButton("extra2", false, false);
-  showOrHideButton("extra1", false, false);
 
   //initializing the progress bar picture. 
   if (!isBridgeConfigured() && !isProxyConfigured()) {//nobridge noproxy
